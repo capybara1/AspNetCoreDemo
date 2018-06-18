@@ -41,7 +41,7 @@ namespace AspNetCoreDemo.MvcDemo
                     {
                         routes.MapRoute(
                             name: "default",
-                            template: "{controller=ConventionBasedRoutingExamples}/{action=Get}/{id?}");
+                            template: "api/{controller=ConventionBasedRoutingExamples}/{action=Get}/{id?}");
                     });
                 });
 
@@ -49,13 +49,11 @@ namespace AspNetCoreDemo.MvcDemo
 
             var client = server.CreateClient();
 
-            var response = await client.GetAsync("/");
+            var response = await client.GetAsync("/api");
             var greeting = await response.Content.ReadAsStringAsync();
 
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
             Assert.Equal("Hello, World!", greeting);
-
-
         }
         
         [Fact(DisplayName = "Use Controller with Non-Default Routes (non-default route)")]
@@ -75,7 +73,7 @@ namespace AspNetCoreDemo.MvcDemo
                 {
                     // This sets up the default route with a template {controller=Home}/{action=Index}/{id?}
                     app.UseMvcWithDefaultRoute();
-        });
+                });
 
             var server = new TestServer(builder);
 
