@@ -21,7 +21,7 @@ namespace AspNetCoreDemo.MvcDemo.Security.Authorization
             {
                 policy.AddAuthenticationSchemes(BasicAuthenticationDefaults.AuthenticationScheme);
                 policy.RequireAuthenticatedUser();
-                policy.AddRequirements(new IsAdminRequirement());
+                policy.AddRequirements(new UserIsAuthorizedRequirement());
             });
             ContributeResources = CreatePolicy(policy =>
             {

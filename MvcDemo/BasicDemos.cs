@@ -1,7 +1,10 @@
+using AspNetCoreDemo.MvcDemo.Controllers;
 using AspNetCoreDemo.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Internal;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -21,9 +24,118 @@ namespace AspNetCoreDemo.MvcDemo
         {
             _testOutputHelper = testOutputHelper ?? throw new ArgumentNullException(nameof(testOutputHelper));
         }
-        
-        [Fact(DisplayName = "Use controller with convention based routing (default route)")]
-        public async Task UseControllerWithConventionBasedRoutingAndDefaultRoute()
+
+        [Fact(DisplayName = "Use route handler")]
+        public async Task UseControllerWithRouteHandler()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore();
+                })
+                .Configure(app =>
+                {
+                    var router = new RouteHandler(context =>
+                    {
+                        return context.Response.WriteAsync("Hello, World!");
+                    });
+                    app.UseRouter(router);
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+
+            var response = await client.GetAsync("/etst?name=World");
+            var greeting = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
+            Assert.Equal("Hello, World!", greeting);
+        }
+
+        [Fact(DisplayName = "Use route builder with simple routes")]
+        public async Task UseControllerWithRouteBuilderAndSimpleRoutes()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore();
+                })
+                .Configure(app =>
+                {
+                    app.UseRouter(routes =>
+                    {
+                        routes.MapGet("test/{name}", context =>
+                        {
+                            var name = context.GetRouteValue("name");
+                            return context.Response.WriteAsync($"Hello, {name}!");
+                        });
+                    });
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+
+            var response = await client.GetAsync("/test/World");
+            var greeting = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
+            Assert.Equal("Hello, World!", greeting);
+        }
+
+        [Fact(DisplayName = "Use route builder with complex routing")]
+        public async Task UseControllerWithRouteBuilder()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore();
+                })
+                .Configure(app =>
+                {
+                    var defaultHandler = new RouteHandler(context =>
+                    {
+                        return context.Response.WriteAsync("Hello, World!");
+                    });
+                    var routeBuilder = new RouteBuilder(app, defaultHandler);
+                    routeBuilder.MapGet("test/{name}", context =>
+                    {
+                        var name = context.GetRouteValue("name");
+                        return context.Response.WriteAsync($"Hello, {name}!");
+                    });
+                    var router = routeBuilder.Build();
+                    app.UseRouter(defaultHandler);
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+
+            var response = await client.GetAsync("/test");
+            var greeting = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
+            Assert.Equal("Hello, World!", greeting);
+        }
+
+        [Fact(DisplayName = "Use controller with convention based routing")]
+        public async Task UseControllerWithConventionBasedRouting()
         {
             var builder = new WebHostBuilder()
                 .ConfigureLogging(setup =>
@@ -55,9 +167,9 @@ namespace AspNetCoreDemo.MvcDemo
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
             Assert.Equal("Hello, World!", greeting);
         }
-        
-        [Fact(DisplayName = "Use Controller with Non-Default Routes (non-default route)")]
-        public async Task UseControllerWithConventionBasedRoutingAndNonDefaultRoute()
+
+        [Fact(DisplayName = "Use controller with convention based routing (MVC default route)")]
+        public async Task UseControllerWithConventionBasedRoutingAndMvcDefaultRoute()
         {
             var builder = new WebHostBuilder()
                 .ConfigureLogging(setup =>
@@ -86,8 +198,95 @@ namespace AspNetCoreDemo.MvcDemo
             Assert.Equal("Hello, World!", greeting);
         }
 
-        [Fact(DisplayName = "Use Controller with explicit routes")]
-        public async Task UseControllerWithExplicitRoutes()
+        [Fact(DisplayName = "Use Controller with attribute routing to action with multiple methods")]
+        public async Task UseControllerWithAttributeRoutingToActionWithMultipleMethods()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore();
+                })
+                .Configure(app =>
+                {
+                    app.UseMvc();
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+            
+            var response = await client.PutAsync("/explicit/test1", null);
+            var greeting = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
+            Assert.Equal("Hello, Explicit World!", greeting);
+        }
+
+        [Fact(DisplayName = "Use Controller with attribute routing to action with multiple methods")]
+        public async Task UseControllerWithAttributeRoutingToActionWithMultipleRoutes()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore();
+                })
+                .Configure(app =>
+                {
+                    app.UseMvc();
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+
+            var response = await client.GetAsync("/explicit/test2/first");
+            var greeting = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
+            Assert.Equal("Hello, Explicit World!", greeting);
+        }
+
+        [Fact(DisplayName = "Use Controller with attribute routing to action with conflicting unordered routes")]
+        public async Task UseControllerWithAttributeRoutingToActionWithConflictingUnorderedRoutes()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore();
+                })
+                .Configure(app =>
+                {
+                    app.UseMvc();
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+
+            var response = await client.GetAsync("/explicit/test3/morespecific");
+            var methodName = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
+            Assert.Equal(nameof(AttributeRoutingExamplesController.SecondActionWithConflictingUnorderedRoutes), methodName);
+        }
+
+        [Fact(DisplayName = "Use Controller with attribute routing to action with conflicting unordered routes")]
+        public async Task UseControllerWithAttributeRoutingToActionWithConflictingOrderedRoutes()
         {
             var builder = new WebHostBuilder()
                 .ConfigureLogging(setup =>
@@ -107,12 +306,95 @@ namespace AspNetCoreDemo.MvcDemo
             var server = new TestServer(builder);
 
             var client = server.CreateClient();
-            
-            var response = await client.PutAsync("/explicit/test", null);
-            var greeting = await response.Content.ReadAsStringAsync();
+
+            var response = await client.GetAsync("/explicit/test4/morespecific");
+            var methodName = await response.Content.ReadAsStringAsync();
 
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
-            Assert.Equal("Hello, Explicit World!", greeting);
+            Assert.Equal(nameof(AttributeRoutingExamplesController.SecondActionWithConflictingOrderedRoutes), methodName);
+        }
+
+        [Fact(DisplayName = "Use Controller with attribute routing to action with conflicting unordered routes")]
+        public async Task UseControllerWithAttributeRoutingToActionWithConstrainedParameterInRoute()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore();
+                })
+                .Configure(app =>
+                {
+                    app.UseMvc();
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+
+            var response = await client.GetAsync("/explicit/test5/1234");
+            var methodName = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
+            Assert.Equal(nameof(AttributeRoutingExamplesController.FirstActionWithConstrainedParameterInRoute), methodName);
+        }
+
+        [Fact(DisplayName = "Use Controller with attribute routing to action with catch all")]
+        public async Task UseControllerWithAttributeRoutingToActionWithCatchAll()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore();
+                })
+                .Configure(app =>
+                {
+                    app.UseMvc();
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+
+            var response = await client.GetAsync("/explicit/test6/some/more/parameters");
+            var methodName = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
+            Assert.Equal(nameof(AttributeRoutingExamplesController.ActionWithCatchAll), methodName);
+        }
+
+        [Fact(DisplayName = "Use Controller with attribute routing to ambiguous actions")]
+        public async Task UseControllerWithAttributeRoutingToAmbiguousActions()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore();
+                })
+                .Configure(app =>
+                {
+                    app.UseMvc();
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+            
+            await Assert.ThrowsAnyAsync<AmbiguousActionException>(async () => await client.GetAsync("/explicit/test7"));
         }
 
         [Fact(DisplayName = "Use Controller Action with no return value")]

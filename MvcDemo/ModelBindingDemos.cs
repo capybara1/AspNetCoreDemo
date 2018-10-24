@@ -210,7 +210,7 @@ namespace AspNetCoreDemo.MvcDemo
                 Encoding.UTF8,
                 "application/json");
             content.Headers.ContentType.MediaType = "application/json";
-            var response = await client.PutAsync("be/custom_binder", content);
+            var response = await client.PutAsync("be/custom_binder?filter=#invalid", content);
 
             Assert.Equal(StatusCodes.Status400BadRequest, (int)response.StatusCode);
         }

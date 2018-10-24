@@ -13,6 +13,9 @@ namespace AspNetCoreDemo.MiddlewareDemo.Security.Authorization
             ResourceOwnerAuthorizationRequirement requirement,
             Resource resource)
         {
+            if (context == null) throw new ArgumentNullException(nameof(context));
+            if (requirement == null) throw new ArgumentNullException(nameof(requirement));
+
             var isOwner = string.Equals(context.User.Identity?.Name,
                 resource?.Owner?.ToString(),
                 StringComparison.OrdinalIgnoreCase);

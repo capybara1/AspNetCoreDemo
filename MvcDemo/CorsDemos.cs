@@ -47,7 +47,7 @@ namespace AspNetCoreDemo.MvcDemo
             })
             .Configure(app =>
             {
-                app.UseMvcWithDefaultRoute();
+                app.UseMvc();
             });
             
             var server = new TestServer(builder);
@@ -57,7 +57,7 @@ namespace AspNetCoreDemo.MvcDemo
             client.DefaultRequestHeaders.Add("Origin", "http://example.com");
             client.DefaultRequestHeaders.Add("Referer", "http://example.com");
             
-            var response = await client.GetAsync("/cors");
+            var response = await client.GetAsync("/cors/enabled");
             AssertOriginIsAllowed(response, "http://example.com");
 
             var otherResponse = await client.GetAsync("/cors/disabled");

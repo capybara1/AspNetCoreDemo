@@ -93,8 +93,8 @@ namespace AspNetCoreDemo.MiddlewareDemo
             await RunTestAsync(requirements, StatusCodes.Status403Forbidden);
         }
 
-        [Fact(DisplayName = "Use imperative authorization with policies")]
-        public async Task UseImperativeAuthorizationWithPolicies()
+        [Fact(DisplayName = "Use imperative authorization with policy based on standard requirements")]
+        public async Task UseImperativeAuthorizationWithPolicyBasedOnStandardRequirements()
         {
             var builder = new WebHostBuilder()
                 .ConfigureLogging(setup =>
@@ -141,10 +141,96 @@ namespace AspNetCoreDemo.MiddlewareDemo
                         var logger = serviceProvider.GetRequiredService<ILogger<AuthorizationDemos>>();
                         var authorizationService = serviceProvider.GetRequiredService<IAuthorizationService>();
                         
-                        var requirements = new[]
+                        var result = await authorizationService.AuthorizeAsync(
+                            context.User,
+                            null,
+                            "DemoPolicy");
+
+                        if (result.Succeeded)
                         {
-                            new ClaimsAuthorizationRequirement(ClaimTypes.Role, new[] { "Admin" }),
-                        };
+                            await next();
+                        }
+                        else
+                        {
+                            foreach (var requirement in result.Failure.FailedRequirements)
+                            {
+                                logger.LogInformation($"Failed requirement: {requirement.GetType().Name}");
+                            }
+                            await context.ForbidAsync("DemoScheme");
+                        }
+                    });
+                    app.Run(async context =>
+                    {
+                        context.Response.StatusCode = StatusCodes.Status200OK;
+                        context.Response.ContentType = "text/plain";
+                        await context.Response.WriteAsync("Hello, World!", new UTF8Encoding(false));
+                    });
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+
+            client.DefaultRequestHeaders.Add("Proof", "Sound Proof");
+            var response = await client.GetAsync("/");
+
+            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
+        }
+        
+        [Fact(DisplayName = "Use imperative authorization with policy based on custom requirement")]
+        public async Task UseImperativeAuthorizationWithPolicyBasedOnCustomRequirement()
+        {
+            var userAuthorizationServiceMock = new Mock<IUserAuthorizationService>();
+            userAuthorizationServiceMock
+                .Setup(m => m.IsMethodAllowedForUser(It.IsAny<ClaimsPrincipal>()))
+                .Returns(true);
+
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddLogging();
+                    services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+                    services.AddSingleton(userAuthorizationServiceMock.Object);
+                    services.AddSingleton<IAuthorizationHandler, MethodAllowedForUserAuthorizationHandler>();
+                    services.AddAuthentication()
+                        .AddScheme<DemoAuthenticationSchemeOptions, DemoAuthenticationHandler>("DemoScheme", opt => { });
+                    services.AddAuthorization(opt => opt.AddPolicy(
+                            "DemoPolicy",
+                            policyBuilder => policyBuilder
+                                .AddRequirements(new MethodAllowedForUserAuthorizationRequirement())));
+                })
+                .Configure(app =>
+                {
+                    var serviceProvider = app.ApplicationServices;
+
+                    app.UseAuthentication();
+                    app.Use(async (context, next) =>
+                    {
+                        var result = await context.AuthenticateAsync("DemoScheme");
+                        if (result.None)
+                        {
+                            await context.ChallengeAsync("DemoScheme");
+                        }
+                        else if (result.Succeeded)
+                        {
+                            context.User = result.Principal;
+                            await next();
+                        }
+                        else
+                        {
+                            await context.ForbidAsync("DemoScheme");
+                        }
+                    });
+                    app.Use(async (context, next) =>
+                    {
+                        var logger = serviceProvider.GetRequiredService<ILogger<AuthorizationDemos>>();
+                        var authorizationService = serviceProvider.GetRequiredService<IAuthorizationService>();
+                        
                         var result = await authorizationService.AuthorizeAsync(
                             context.User,
                             null,

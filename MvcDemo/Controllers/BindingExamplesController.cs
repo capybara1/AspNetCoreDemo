@@ -98,7 +98,7 @@ namespace AspNetCoreDemo.MvcDemo.Controllers
         }
 
         [HttpPut("custom_binder")]
-        public IActionResult SetExampleWithCustomBinder(SortExpression filterExpression)
+        public IActionResult SetExampleWithCustomBinder(SortExpression filter)
         {
             if (!ModelState.IsValid)
             {

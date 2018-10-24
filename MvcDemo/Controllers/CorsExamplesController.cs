@@ -7,7 +7,7 @@ namespace AspNetCoreDemo.MvcDemo.Controllers
     [EnableCors("DemoCorsPolicy")]
     public class CorsExamplesController : ControllerBase
     {
-        [HttpGet("")]
+        [HttpGet("enabled")]
         public string AccessControlledByCorsPolicy()
         {
             return "Hello, World!";

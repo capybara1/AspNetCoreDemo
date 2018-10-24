@@ -311,7 +311,7 @@ namespace AspNetCoreDemo.MiddlewareDemo
 
             var client = server.CreateClient();
 
-            await Assert.ThrowsAsync<Exception>(async () => await client.GetAsync("/"));
+            await Assert.ThrowsAnyAsync<Exception>(async () => await client.GetAsync("/"));
         }
     }
 }

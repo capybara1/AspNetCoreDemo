@@ -15,7 +15,7 @@ using Xunit.Abstractions;
 
 namespace AspNetCoreDemo.MvcDemo
 {
-    [Trait("Category", "ASP.NET Core MVC / Basics")]
+    [Trait("Category", "ASP.NET Core MVC / Filters")]
     public class FilterDemos
     {
         private readonly ITestOutputHelper _testOutputHelper;

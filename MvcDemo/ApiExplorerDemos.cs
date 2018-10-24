@@ -1,4 +1,5 @@
-﻿using AspNetCoreDemo.Utils;
+﻿using AspNetCoreDemo.MvcDemo.Controllers;
+using AspNetCoreDemo.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
@@ -21,8 +22,8 @@ namespace AspNetCoreDemo.MvcDemo
             _testOutputHelper = testOutputHelper ?? throw new ArgumentNullException(nameof(testOutputHelper));
         }
 
-        [Fact(DisplayName = "Use API-Explorer")]
-        public async Task UseApiExplorer()
+        [Fact(DisplayName = "Use API-Explorer to get response infos")]
+        public async Task UseApiExplorerToGetResponseInfos()
         {
             var builder = new WebHostBuilder()
                 .ConfigureLogging(setup =>
@@ -45,6 +46,32 @@ namespace AspNetCoreDemo.MvcDemo
             var client = server.CreateClient();
 
             var response = await client.GetAsync("/doc");
+        }
+
+        [Fact(DisplayName = "Use API-Explorer to get parameter infos")]
+        public async Task UseApiExplorerToGetParameterInfos()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore()
+                        .AddApiExplorer();
+                })
+                .Configure(app =>
+                {
+                    app.UseMvcWithDefaultRoute();
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+
+            var response = await client.GetAsync("/doc/" + nameof(ApiExplorerExamplesController.ActionWithArguments) + "/value");
         }
     }
 }

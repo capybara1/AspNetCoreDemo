@@ -1,4 +1,5 @@
-﻿using AspNetCoreDemo.MvcDemo.Security.Authentication;
+﻿using AspNetCoreDemo.MvcDemo.Contracts;
+using AspNetCoreDemo.MvcDemo.Security.Authentication;
 using AspNetCoreDemo.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -6,7 +7,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Moq;
 using System;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
@@ -99,6 +102,14 @@ namespace AspNetCoreDemo.MvcDemo
 
         private async Task RunTestAsync(TestParameters parameters)
         {
+            var userAuthorizationServiceMock = new Mock<IUserAuthorizationService>();
+            userAuthorizationServiceMock
+                .Setup(m => m.IsAuthorized(It.IsAny<ClaimsPrincipal>(), It.IsAny<string>(), It.IsAny<string>()))
+                .ReturnsAsync(false);
+            userAuthorizationServiceMock
+                .Setup(m => m.IsAuthorized(It.IsAny<ClaimsPrincipal>(), "GET", It.IsAny<string>()))
+                .ReturnsAsync(true);
+
             var builder = new WebHostBuilder()
                 .ConfigureLogging(setup =>
                 {
@@ -107,6 +118,7 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .ConfigureServices(services =>
                 {
+                    services.AddSingleton(userAuthorizationServiceMock);
                     services.AddAuthentication("DemoScheme")
                         .AddScheme<DemoAuthenticationSchemeOptions, DemoAuthenticationHandler>("DemoScheme", opt => { });
                     services.AddMvcCore()
