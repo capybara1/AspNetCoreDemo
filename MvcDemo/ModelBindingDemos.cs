@@ -151,8 +151,8 @@ namespace AspNetCoreDemo.MvcDemo
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
         }
 
-        [Fact(DisplayName = "Use Controller with complex parameter")]
-        public async Task UseControllerWithComplexParameter()
+        [Fact(DisplayName = "Use Controller with binding to complex object by qualified parameters")]
+        public async Task UseControllerWithBindingToComplexObjectByQualifiedParameter()
         {
             var builder = new WebHostBuilder()
                 .ConfigureLogging(setup =>
@@ -178,7 +178,35 @@ namespace AspNetCoreDemo.MvcDemo
 
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
         }
-        
+
+        [Fact(DisplayName = "Use Controller with binding to complex object by unqualified parameters")]
+        public async Task UseControllerWithBindingToComplexObjectByUnqualifiedParameter()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore()
+                        .AddJsonFormatters();
+                })
+                .Configure(app =>
+                {
+                    app.UseMvcWithDefaultRoute();
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+
+            var response = await client.GetAsync("be/complex_parameter?text=example%20text&priority=2");
+
+            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
+        }
+
         [Fact(DisplayName = "Use Controller with custom binder")]
         public async Task UseControllerWithCustomBinder()
         {
