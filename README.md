@@ -22,12 +22,16 @@ Demo Code with Examples for educational purpose
 # Comparison to Alternative Technologies
 
 ## SOAP
-  - Soap is considered RPC
-  - Soap works without HTTP
+  - SOAP is considered RPC
+  - SOAP works without HTTP
     - Some HTTP Features are duplicated to remove dependencies
     - Tooling for HTTP cannot be used
       - Only used verb is POST
+        - No HTTP Caching
       - Informations in body
+        - No URL based filtering
+  - SOAP has a defined set of associated standards (WS-*)
+
 # HTTP
 
 ## Verbs
@@ -100,7 +104,12 @@ In alphabetical order:
 
 # Standardization
 
+## API & Data Description Languages
+
 In alphabetical order:
+- [API Blueprint](https://apiblueprint.org/documentation/specification.html)
+  - Version 1A revision 9
+  - Licensed under MIT License
 - [Collection+JSON](http://amundsen.com/media-types/collection/)
   - Current version released on February 2013
 - [HAL](http://stateless.co/hal_specification.html) (**H**ypertext **A**pplication **L**anguage)
@@ -108,6 +117,8 @@ In alphabetical order:
 - [Hydra](http://www.markus-lanthaler.com/hydra/) (**Hy**permedia-**Dr**iven Web **A**PIs)
   - Builds upon JSON-LD
   - Current Version released in 2013
+- [I/O Docs](https://github.com/mashery/iodocs)
+  - Current version released on July 2014
 - [JSON API](https://jsonapi.org/format/)
   - Version 1.0 released on May 2015
 - [JSON-LD](https://json-ld.org/spec/latest/json-ld-api/) (**JSON** for **L**inked **D**ocuments)
@@ -130,7 +141,20 @@ In alphabetical order:
   - Standardized by IETF
   - Current Version released in 2012
 
-See also [On choosing a hypermedia type for your API](https://sookocheff.com/post/api/on-choosing-a-hypermedia-format/)
+Further readings:
+- [Overview of RESTful API Description Languages](https://en.wikipedia.org/wiki/Overview_of_RESTful_API_Description_Languages)
+- [On choosing a hypermedia type for your API](https://sookocheff.com/post/api/on-choosing-a-hypermedia-format/)
+- [Ultimate Guide to 30+ API Documentation Solutions](https://nordicapis.com/ultimate-guide-to-30-api-documentation-solutions/)
+
+## Ressource Representation
+
+In alphabetical order:
+- [iCalendar](https://tools.ietf.org/html/rfc5545)
+- [JSON](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
+  - [YAML](http://yaml.org/spec/1.2/spec.html)
+- [Protobuf](https://github.com/protocolbuffers/protobuf)
+- [XML](https://www.w3.org/TR/xml/)
+  - [Atom](https://tools.ietf.org/html/rfc4287)
 
 # Articles
 
