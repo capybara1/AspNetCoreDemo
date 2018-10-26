@@ -1,6 +1,13 @@
 ﻿using AspNetCoreDemo.MvcDemo.Model;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AspNetCoreDemo.MvcDemo.Controllers
 {
@@ -38,9 +45,21 @@ namespace AspNetCoreDemo.MvcDemo.Controllers
         [HttpGet("array_parameter")]
         public void GetExampleWithArrayParameter(string[] param)
         {
+            _logger.LogInformation($"Parameter value count: {param?.Length}");
             foreach (var paramValue in param)
             {
                 _logger.LogInformation($"Parameter value: '{paramValue}'");
+            }
+        }
+
+        [HttpGet("dict_parameter")]
+        public void GetExampleWithDictionaryParameter(Dictionary<string, string> param)
+        {
+            _logger.LogInformation($"Parameter value count: {param?.Count}");
+            foreach (var kvp in param)
+            {
+                _logger.LogInformation($"Parameter key: '{kvp.Key}'");
+                _logger.LogInformation($"Parameter value: '{kvp.Value}'");
             }
         }
 
@@ -63,11 +82,30 @@ namespace AspNetCoreDemo.MvcDemo.Controllers
         [HttpGet("custom_binder")]
         public void SetExampleWithCustomBinder(SortExpression filter)
         {
+            _logger.LogInformation($"Filter parameter count: {filter?.Count}");
             foreach (var item in filter)
             {
                 _logger.LogInformation($"Filter parameter direction: '{item.Direction}'");
                 _logger.LogInformation($"Filter parameter field name: '{item.FieldName}'");
             }
+        }
+
+        [HttpPost("file_upload")]
+        public async Task FileUploadExampleAsync(IFormFile file)
+        {
+            _logger.LogInformation($"File name: {file.FileName}");
+            using (var stream = file.OpenReadStream())
+            using (var reader = new StreamReader(stream, Encoding.UTF8, false, 1024, false))
+            {
+                var content = await reader.ReadToEndAsync();
+                _logger.LogInformation($"File content: {content}");
+            }
+        }
+
+        [HttpGet("cancellation_token")]
+        public async Task SetExampleWithCancellationTokenAsync(CancellationToken cancellationToken)
+        {
+            await Task.Delay(0, cancellationToken); // Only for purpose of demonstration
         }
     }
 }
