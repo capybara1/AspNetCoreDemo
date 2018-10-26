@@ -21,6 +21,9 @@ namespace AspNetCoreDemo.MiddlewareDemo
     [Trait("Category", "ASP.NET Core Middleware / URL Rewrite")]
     public class UrlRewriteDemos
     {
+        // Note recommendations:
+        // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/url-rewriting?view=aspnetcore-2.1#when-to-use-url-rewriting-middleware
+
         private readonly ITestOutputHelper _testOutputHelper;
 
         public UrlRewriteDemos(ITestOutputHelper testOutputHelper)
