@@ -22,7 +22,7 @@ Demo Code with Examples for educational purpose
 # Comparison to Alternative Technologies
 
 ## SOAP
-  - SOAP is considered RPC
+  - SOAP is considered RPC while REST relies on manipulation of addressable ressources
   - SOAP works without HTTP
     - Some HTTP Features are duplicated to remove dependencies
     - Tooling for HTTP cannot be used
@@ -34,29 +34,116 @@ Demo Code with Examples for educational purpose
 
 # HTTP
 
+[Protocol Specifications](https://developer.mozilla.org/en-US/docs/Web/HTTP/Resources_and_specifications)
+
 ## Verbs
-  - Overview
-    - [HTTP 1.1 - Sec. 9](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
-    - [Using HTTP Methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html)
-  - Importent properties
-    - Safety
-    - Idempotence
+
+Method                                                                   | [Safe](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.1.1) | [Idempotent](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.1.2) | 
+------------------------------------------------------------------------ | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------- | 
+[OPTIONS](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.2) | True                                                                    | True                                                                          | 
+[HEAD](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.4)    | True                                                                    | True                                                                          | 
+[GET](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3)     | True                                                                    | True                                                                          | 
+[PUT](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.6)     | False                                                                   | True                                                                          | 
+[DELETE](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.7)  | False                                                                   | True                                                                          | 
+[POST](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.5)    | False                                                                   | False                                                                         | 
+[PATCH](https://tools.ietf.org/html/rfc5789)                             | False                                                                   | False                                                                         | 
+
+Further readings:
+- [Using HTTP Methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html)
+
 
 ## Status Codes
-  - Overview
-    - [HTTP 1.1 - Sec. 10](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
-  - Most important
-    - 200 OK
-    - 201 Created
-    - 202 Accepted
-    - 204 No Content
-    - 400 Bad Request
-    - 401 Unauthorized
-    - 403 Forbidden
-    - 404 Not Found
-    - 405 Method Not Allowed
-    - 500 Internal Server Error
-    - 503 Service Unavailable
+- Overview
+- [HTTP 1.1 - Sec. 10](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
+- Most important
+- Success
+    - [200 OK](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200)
+    - [201 Created](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/201)
+    - [202 Accepted](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/202)
+    - [204 No Content](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204)
+- Redirect
+    - [302 Found](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/302)
+- Client Side Error
+    - [400 Bad Request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400)
+    - [401 Unauthorized](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401)
+    - [403 Forbidden](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403)
+    - [404 Not Found](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404)
+    - [405 Method Not Allowed](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405)
+    - [406 Not Acceptable](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/406)
+    - [409 Conflict](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/409)
+    - [415 Unsupported Media Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/415)
+- Server Side Error
+    - [500 Internal Server Error](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500)
+    - [503 Service Unavailable](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503)
+
+Further readings:
+- [Redirections](https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections)
+
+## Header
+
+- [Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)
+  - Request
+    - Authorization
+    - Proxy-Authorization
+  - Response
+    - WWW-Authenticate
+    - Proxy-Authenticate
+- [Conditional Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Conditional_requests)
+  - Strong Validation
+    - Request
+      - If-Match
+      - If-None-Match
+  - Weak Validation
+    - Request
+      - If-Modified-Since
+      - If-Unmodified-Since
+      - If-Range
+- [Content Negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation)
+  - Content Type
+    - Request
+      - Accept
+      - Accept-Charset
+    - Response
+      - Content-Type
+  - Encoding
+    - Request
+      - Accept-Encoding
+    - Response
+      - Content-Encoding
+  - Language
+    - Request
+      - Accept-Language
+    - Response
+      - Content-Language
+  - Client Hints
+    - Request
+      - Device-Memory
+      - DPR
+      - Viewport-Width
+      - Width
+- Caching
+  - Response
+    - Vary
+- Compression
+- Cookies
+- Range Request
+- CORS
+  - Response
+    - Access-Control-Allow-Credentials
+    - Access-Control-Allow-Headers
+    - Access-Control-Allow-Methods
+    - Access-Control-Allow-Origin
+    - Access-Control-Expose-Headers
+    - Access-Control-Max-Age
+    - Access-Control-Request-Headers
+    - Access-Control-Request-Method
+- Sonstige
+  - Request
+    - Pragma
+  - Response
+    - Location
+    - Via
+    - Warning
 
 # REST
 
