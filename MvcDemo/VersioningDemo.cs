@@ -16,6 +16,8 @@ namespace AspNetCoreDemo.MvcDemo
     [Trait("Category", "ASP.NET Core MVC / Versioning")]
     public class VersioningDemo
     {
+        // See https://github.com/Microsoft/aspnet-api-versioning
+
         private readonly ITestOutputHelper _testOutputHelper;
 
         public VersioningDemo(ITestOutputHelper testOutputHelper)
