@@ -42,7 +42,7 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .Configure(app =>
                 {
-                    app.UseMvcWithDefaultRoute();
+                    app.UseMvc();
                 });
 
             var server = new TestServer(builder);
@@ -53,7 +53,7 @@ namespace AspNetCoreDemo.MvcDemo
                 "{ Text: \"my text\" }",
                 Encoding.UTF8,
                 "application/json");
-            var response = await client.PutAsync("be/test2/name", content);
+            var response = await client.PutAsync("formatter", content);
 
             Assert.Equal(StatusCodes.Status204NoContent, (int)response.StatusCode);
         }
@@ -75,7 +75,7 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .Configure(app =>
                 {
-                    app.UseMvcWithDefaultRoute();
+                    app.UseMvc();
                 });
 
             var server = new TestServer(builder);
@@ -86,7 +86,7 @@ namespace AspNetCoreDemo.MvcDemo
                 "<ExampleModel><Text>my text</Text></ExampleModel>",
                 Encoding.UTF8,
                 "application/xml");
-            var response = await client.PutAsync("be/test2/name", content);
+            var response = await client.PutAsync("formatter", content);
 
             Assert.Equal(StatusCodes.Status204NoContent, (int)response.StatusCode);
         }
@@ -108,7 +108,7 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .Configure(app =>
                 {
-                    app.UseMvcWithDefaultRoute();
+                    app.UseMvc();
                 });
 
             var server = new TestServer(builder);
@@ -116,7 +116,7 @@ namespace AspNetCoreDemo.MvcDemo
             var client = server.CreateClient();
             var acceptHeaderValue = MediaTypeWithQualityHeaderValue.Parse("application/json");
             client.DefaultRequestHeaders.Accept.Add(acceptHeaderValue);
-            var response = await client.GetAsync("be/test3");
+            var response = await client.GetAsync("formatter");
             var example = await response.Content.ReadAsStringAsync();
 
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
@@ -140,7 +140,7 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .Configure(app =>
                 {
-                    app.UseMvcWithDefaultRoute();
+                    app.UseMvc();
                 });
 
             var server = new TestServer(builder);
@@ -148,7 +148,7 @@ namespace AspNetCoreDemo.MvcDemo
             var client = server.CreateClient();
             var acceptHeaderValue = MediaTypeWithQualityHeaderValue.Parse("application/xml");
             client.DefaultRequestHeaders.Accept.Add(acceptHeaderValue);
-            var response = await client.GetAsync("be/test3");
+            var response = await client.GetAsync("formatter");
             var example = await response.Content.ReadAsStringAsync();
 
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
