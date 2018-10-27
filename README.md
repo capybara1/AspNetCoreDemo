@@ -19,19 +19,6 @@ Demo Code with Examples for educational purpose
     - Versioing
     - Performance
 
-# Comparison to Alternative Technologies
-
-## SOAP
-  - SOAP is considered RPC while REST relies on manipulation of addressable ressources
-  - SOAP works without HTTP
-    - Some HTTP Features are duplicated to remove dependencies
-    - Tooling for HTTP cannot be used
-      - Only used verb is POST
-        - No HTTP Caching
-      - Informations in body
-        - No URL based filtering
-  - SOAP has a defined set of associated standards (WS-*)
-
 # HTTP
 
 [Protocol Specifications](https://developer.mozilla.org/en-US/docs/Web/HTTP/Resources_and_specifications)
@@ -50,7 +37,6 @@ Method                                                                   | [Safe
 
 Further readings:
 - [Using HTTP Methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html)
-
 
 ## Status Codes
 - Overview
@@ -81,69 +67,164 @@ Further readings:
 
 ## Header
 
+- Connection Management
+  - Response/Request
+    - [Connection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection)
+    - [Keep-Alive](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Keep-Alive)
+  - *Note*: In HTTP/2 connection management is handled by other mechanisms
+- Congestion Control
+  - Response
+    - [Retry-After](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After)
+- Discovery
+  - Response
+    - [Allow](https://developer.mozilla.org/en-US/docs/Web/HTTP/Allow)
+- Content Modification
+  - Request
+    - [Content-Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content-Type)
+    - [Content-Length](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content-Length)
+  - Response
+    - [Location](https://developer.mozilla.org/en-US/docs/Web/HTTP/Location)
 - [Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)
   - Request
-    - Authorization
-    - Proxy-Authorization
+    - [Authorization](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authorization)
+    - [Proxy-Authorization](https://developer.mozilla.org/en-US/docs/Web/HTTP/Proxy-Authorization)
   - Response
-    - WWW-Authenticate
-    - Proxy-Authenticate
+    - [WWW-Authenticate](https://developer.mozilla.org/en-US/docs/Web/HTTP/WWW-Authenticate)
+    - [Proxy-Authenticate](https://developer.mozilla.org/en-US/docs/Web/HTTP/Proxy-Authenticate)
 - [Conditional Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Conditional_requests)
   - Strong Validation
     - Request
-      - If-Match
-      - If-None-Match
+      - [If-Match](https://developer.mozilla.org/en-US/docs/Web/HTTP/If-Match)
+      - [If-None-Match](https://developer.mozilla.org/en-US/docs/Web/HTTP/If-None-Match)
   - Weak Validation
     - Request
-      - If-Modified-Since
-      - If-Unmodified-Since
-      - If-Range
+      - [If-Modified-Since](https://developer.mozilla.org/en-US/docs/Web/HTTP/If-Modified-Since)
+      - [If-Unmodified-Since](https://developer.mozilla.org/en-US/docs/Web/HTTP/If-Unmodified-Since)
+      - [If-Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/If-Range)
 - [Content Negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation)
   - Content Type
     - Request
-      - Accept
-      - Accept-Charset
+      - [Accept](https://developer.mozilla.org/en-US/docs/Web/HTTP/Accept)
+      - [Accept-Charset](https://developer.mozilla.org/en-US/docs/Web/HTTP/Accept-Charset)
     - Response
-      - Content-Type
-  - Encoding
-    - Request
-      - Accept-Encoding
-    - Response
-      - Content-Encoding
+      - [Content-Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content-Type)
   - Language
     - Request
-      - Accept-Language
+      - [Accept-Language](https://developer.mozilla.org/en-US/docs/Web/HTTP/Accept-Language)
     - Response
-      - Content-Language
+      - [Content-Language](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content-Language)
   - Client Hints
     - Request
-      - Device-Memory
-      - DPR
-      - Viewport-Width
-      - Width
-- Caching
+      - [User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent)
+      - [Device-Memory](https://developer.mozilla.org/en-US/docs/Web/HTTP/Device-Memory)
+      - [DPR](https://developer.mozilla.org/en-US/docs/Web/HTTP/DPR)
+      - [Viewport-Width](https://developer.mozilla.org/en-US/docs/Web/HTTP/Viewport-Width)
+      - [Width](https://developer.mozilla.org/en-US/docs/Web/HTTP/Width)
+- [Caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
+  - Request/Response
+    - [Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cache-Control)
   - Response
-    - Vary
-- Compression
-- Cookies
-- Range Request
-- CORS
-  - Response
-    - Access-Control-Allow-Credentials
-    - Access-Control-Allow-Headers
-    - Access-Control-Allow-Methods
-    - Access-Control-Allow-Origin
-    - Access-Control-Expose-Headers
-    - Access-Control-Max-Age
-    - Access-Control-Request-Headers
-    - Access-Control-Request-Method
-- Sonstige
+    - [Age](https://developer.mozilla.org/en-US/docs/Web/HTTP/Age)
+    - [ETag](https://developer.mozilla.org/en-US/docs/Web/HTTP/ETag)
+    - [Vary](https://developer.mozilla.org/en-US/docs/Web/HTTP/Vary)
+    - [Last-Modified](https://developer.mozilla.org/en-US/docs/Web/HTTP/Last-Modified)
+    - [Expires](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expires)
+- [Compression](https://developer.mozilla.org/en-US/docs/Web/HTTP/Compression)
   - Request
-    - Pragma
+    - [Accept-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Accept-Encoding)
   - Response
-    - Location
-    - Via
-    - Warning
+    - [Content-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content-Encoding)
+- [Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
+  - Request
+    - [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Set-Cookie)
+  - Response
+    - [Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookie)
+- [Byte Range Request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests)
+  - Request
+    - [Accept-Ranges](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Ranges)
+  - Response
+    - [Content-Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range)
+- [Cross Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/)
+  - Request
+    - [Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin)
+  - Response
+    - [Access-Control-Allow-Credentials](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access-Control-Allow-Credentials)
+    - [Access-Control-Allow-Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access-Control-Allow-Headers)
+    - [Access-Control-Allow-Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access-Control-Allow-Methods)
+    - [Access-Control-Allow-Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access-Control-Allow-Origin)
+    - [Access-Control-Expose-Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access-Control-Expose-Headers)
+    - [Access-Control-Max-Age](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access-Control-Max-Age)
+    - [Access-Control-Request-Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access-Control-Request-Headers)
+    - [Access-Control-Request-Method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access-Control-Request-Method)
+- [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+  - Response
+    - [Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)
+- [HTTP Strict Transport Security (HSTS)](https://tools.ietf.org/html/rfc6797)
+  - Response
+    - Strict-Transport-Security
+- Tracking
+  - Request
+    - [Referer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer)
+    - [DNT](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/DNT)
+  - Response
+    - [Referrer-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
+    - [Tk](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Tk)
+    - [Via](https://developer.mozilla.org/en-US/docs/Web/HTTP/Via)
+- Misc
+  - Request
+    - [Pragma](https://developer.mozilla.org/en-US/docs/Web/HTTP/Pragma)
+  - Response
+    - [Warning](https://developer.mozilla.org/en-US/docs/Web/HTTP/Warning)
+
+## Media Types
+
+In alphabetical order:
+- [Atom](https://tools.ietf.org/html/rfc4287)
+  - `application/atom+xml`
+- Form Data
+  - multipart/form-data
+- [HTML]()
+  - `text/html`
+- [iCalendar](https://tools.ietf.org/html/rfc5545)
+  - `text/calendar`
+- [JSON](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
+  - `application/json`
+- [Protobuf](https://github.com/protocolbuffers/protobuf)
+  - *not registered*
+  - Currently in use
+    - `application/x-protobuf`
+    - `application/vnd.google.protobuf`
+- Text
+  - `text/plain`
+- [XML](https://www.w3.org/TR/xml/)
+  - `application/xml`
+- [YAML](http://yaml.org/spec/1.2/spec.html)
+  - *not registered*
+  - Currently in use
+    - `text/x-yaml`
+    - `application/x-yaml`
+    - `application/yaml`
+    - `application/vnd.yaml`
+
+Further readings:
+- [Multipurpose Internet Mail Extensions(MIME)](https://www.ietf.org/rfc/rfc2045.txt)
+- [Media Types](https://www.iana.org/assignments/media-types/media-types.xml)
+- [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)
+- [Incomplete list of MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types)
+
+
+## Comparison to SOAP
+
+- [SOAP 1.2](https://www.w3.org/TR/soap12-part0/) has been standardized by W3C in April 2007
+- SOAP is considered RPC while REST relies on manipulation of addressable ressources
+- SOAP works without HTTP but is usually used on top, since communication via HTTP is usually enabled in a corporate security infrastructure
+- Some HTTP Features are redundant to remove a dependencie to HTTP
+- Tooling for HTTP cannot be used
+    - Only used verb is POST
+      - No HTTP Caching
+    - Informations in body
+      - No URL based filtering
+- SOAP has a defined set of associated standards ([WS-*](https://msdn.microsoft.com/en-us/library/ms951274.aspx)), created by a few organizations
 
 # REST
 
@@ -233,15 +314,7 @@ Further readings:
 - [On choosing a hypermedia type for your API](https://sookocheff.com/post/api/on-choosing-a-hypermedia-format/)
 - [Ultimate Guide to 30+ API Documentation Solutions](https://nordicapis.com/ultimate-guide-to-30-api-documentation-solutions/)
 
-## Ressource Representation
 
-In alphabetical order:
-- [iCalendar](https://tools.ietf.org/html/rfc5545)
-- [JSON](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)
-  - [YAML](http://yaml.org/spec/1.2/spec.html)
-- [Protobuf](https://github.com/protocolbuffers/protobuf)
-- [XML](https://www.w3.org/TR/xml/)
-  - [Atom](https://tools.ietf.org/html/rfc4287)
 
 # Articles
 
