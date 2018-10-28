@@ -25,15 +25,15 @@ Demo Code with Examples for educational purpose
 
 ## Verbs
 
-Method                                                                   | [Safe](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.1.1) | [Idempotent](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.1.2) | 
------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------- | 
-[OPTIONS](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.2) | True                                                                    | True                                                                          | 
-[HEAD](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.4)    | True                                                                    | True                                                                          | 
-[GET](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3)     | True                                                                    | True                                                                          | 
-[PUT](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.6)     | False                                                                   | True                                                                          | 
-[DELETE](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.7)  | False                                                                   | True                                                                          | 
-[POST](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.5)    | False                                                                   | False                                                                         | 
-[PATCH](https://tools.ietf.org/html/rfc5789)                             | False                                                                   | False                                                                         | 
+Method                                                                   | Semantics | [Safe](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.1.1) | [Idempotent](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.1.2) | 
+------------------------------------------------------------------------ | --------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------- | 
+[OPTIONS](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.2) |           | True                                                                    | True                                                                          | 
+[HEAD](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.4)    | Read      | True                                                                    | True                                                                          | 
+[GET](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3)     | Read      | True                                                                    | True                                                                          | 
+[PUT](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.6)     | Upsert    | False                                                                   | True                                                                          | 
+[POST](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.5)    | Create    | False                                                                   | False                                                                         | 
+[PATCH](https://tools.ietf.org/html/rfc5789)                             | Update    | False                                                                   | False                                                                         | 
+[DELETE](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.7)  | Delete    | False                                                                   | True                                                                          | 
 
 Further readings:
 - [Using HTTP Methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html)
