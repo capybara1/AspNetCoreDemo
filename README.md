@@ -374,9 +374,11 @@ In alphabetical order:
 - [Google API Design Guide](https://cloud.google.com/apis/design/)
   - Maintained by Google
   - Current version released in February 2017
-- [HAL](http://stateless.co/hal_specification.html) (**H**ypertext **A**pplication **L**anguage)
+- [HAL](http://stateless.co/hal_specification.html)
+  - Acronym for **H**ypertext **A**pplication **L**anguage
   - Current version release on September 2013
-- [Hydra](http://www.markus-lanthaler.com/hydra/) (**Hy**permedia-**Dr**iven Web **A**PIs)
+- [Hydra](http://www.markus-lanthaler.com/hydra/)
+  - Acronym for **Hy**permedia-**Dr**iven Web **A**PIs
   - Builds upon JSON-LD
   - Current Version released in 2013
 - [I/O Docs](https://github.com/mashery/iodocs)
@@ -394,11 +396,12 @@ In alphabetical order:
   - Version 3.0.2 released in 2018
   - Favours usage of a descriptional document over discovery by hypermedia
 - [RAML](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/)
+  - Acronym for **R**ESTful **A**PI **M**odeling **L**anguage
   - Standardized by RAML Workgroup
   - Version 1.0 released on August 2016
   - Favours usage of a descriptional document over discovery by hypermedia
-- [SIREN](https://github.com/kevinswiber/siren)
-  - Version 0.6.2released on April 2017
+- [Siren](https://github.com/kevinswiber/siren)
+  - Version 0.6.2 released on April 2017
 - [Zalando RESTful API and Event Scheme Guidelines](https://opensource.zalando.com/restful-api-guidelines/)
   - Maintained by Zalando
   - Current version released on October 2016
@@ -414,22 +417,28 @@ Further readings:
 
 In alphabetical order:
 - [CURIE](https://www.w3.org/TR/curie/)
+  - Acronym for **C**ompact **URI**
   - Standardized by W3C
   - Version 1.0 released on December 2010
-- [JSON-LD](https://json-ld.org/spec/latest/json-ld-api/) (**JSON** for **L**inked **D**ocuments)
+- [JSON-LD](https://json-ld.org/spec/latest/json-ld-api/)
+  - Acronym for **JSON** for **L**inked **D**ocuments
   - Standardized by W3C
   - Version 1.1 released on September 2018
 - [URI Template](https://tools.ietf.org/html/rfc6570)
   - Standardized by IETF
   - Current Version released in 2012
 - [WebHooks](https://de.wikipedia.org/wiki/WebHooks)
+- [WebSockets](https://tools.ietf.org/html/rfc6455)
 
 ## Articles
 
 ### Versioning
 
 In alphabetical order:
+- [Compatibility](https://cloud.google.com/apis/design/compatibility)
 - [REST & API Versioning](https://www.predic8.de/rest-api-versioning.htm)
   - Published on November 2017
 - [Your API versioning is wrong, which is why I decided to do it 3 different wrong ways](https://www.troyhunt.com/your-api-versioning-is-wrong-which-is/)
   - Published on February 2014
+- [Evolving HTTP APIs](https://www.mnot.net/blog/2012/12/04/api-evolution)
+  - Published on December 2012
