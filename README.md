@@ -270,6 +270,8 @@ Further readings:
 
 ## Aspects
 
+### Universal
+
 - Naming conventions
 - Type conventions
   - Representation of date and time (points, durations & intervals)
@@ -283,7 +285,7 @@ Further readings:
   - Providing meta information
   - Document structure
 - Retrieval of a single resource
-  - Sparse resource retrieval
+  - Partial resource retrieval
   - Representation of relationships
   - includion of related resources
 - Manipulation of single resources
@@ -293,8 +295,6 @@ Further readings:
   - Removing relationships
 - Retrieval of resource collections
   - Filtering
-    - Searching
-    - Delta queries
   - Sorting
   - Pagination
 - Mainpulation of resource collections
@@ -304,17 +304,18 @@ Further readings:
       - Server-side
     - Polymorphy
       - Type declaration
-    - Conflict detection
-    - Conflict handling
   - Removing resources
     - Tombstoning
     - Trash Bin
+- Searching
 - Representation of error information
   - Status Codes
   - Document structure
+- Change Management
+  - Undo
+  - Delta queries
 - Events
 - Batch requests
-- Transactions
 - Resilience
   - Retrying requests
 - Security
@@ -334,9 +335,31 @@ Further readings:
 - Availability
   - Throttling
   - Rate Limiting
-- Monetization
+- Consistency
+  - Optimistic concurrency control
+    - Conflict avoidance
+    - Conflict detection
+    - Conflict handling
+  - Transactions
 - Multitenancy
-- Tooling
+  - Measuring
+  - Monetization
+- Developer experience
+  - Documentation
+  - Tooling
+  - Code on Demand
+
+### [Microservices](https://martinfowler.com/articles/microservices.html)
+
+- [Componentization via Services](https://martinfowler.com/articles/microservices.html#ComponentizationViaServices)
+- [Organized around Business Capabilities](https://martinfowler.com/articles/microservices.html#OrganizedAroundBusinessCapabilities)
+- [Products not Projects](https://martinfowler.com/articles/microservices.html#ProductsNotProjects)
+- [Smart endpoints and dumb pipes](https://martinfowler.com/articles/microservices.html#SmartEndpointsAndDumbPipes)
+- [Decentralized Governance](https://martinfowler.com/articles/microservices.html#DecentralizedGovernance)
+- [Decentralized Data Management](https://martinfowler.com/articles/microservices.html#DecentralizedDataManagement)
+- [Infrastructure Automation](https://martinfowler.com/articles/microservices.html#InfrastructureAutomation)
+- [Design for failure](https://martinfowler.com/articles/microservices.html#DesignForFailure)
+- [Evolutionary Design](https://martinfowler.com/articles/microservices.html#EvolutionaryDesign)
 
 ## Standardization
 
