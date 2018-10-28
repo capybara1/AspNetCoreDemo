@@ -1,4 +1,4 @@
-# ASP.NET Core
+﻿# ASP.NET Core
 
 Demo Code with Examples for educational purpose
 
@@ -385,9 +385,6 @@ In alphabetical order:
   - Current version released on July 2014
 - [JSON API](https://jsonapi.org/format/)
   - Version 1.0 released on May 2015
-- [JSON-LD](https://json-ld.org/spec/latest/json-ld-api/) (**JSON** for **L**inked **D**ocuments)
-  - Standardized by W3C
-  - Version 1.1 released on September 2018
 - [Microsoft REST API Guidelines](https://github.com/Microsoft/api-guidelines)
   - Maintained by Microsoft
   - Current Version released in October 2018, continuously improved
@@ -412,13 +409,18 @@ Further readings:
 - [Design Guidelines](http://apistylebook.com/design/guidelines/)
 - [Overview of RESTful API Description Languages](https://en.wikipedia.org/wiki/Overview_of_RESTful_API_Description_Languages)
 - [On choosing a hypermedia type for your API](https://sookocheff.com/post/api/on-choosing-a-hypermedia-format/)
-- [hackernoon.com](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9)
+- [RESTful API Designing guidelines — The best practices](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9)
 - [Ultimate Guide to 30+ API Documentation Solutions](https://nordicapis.com/ultimate-guide-to-30-api-documentation-solutions/)
 
 ### Fundamental Technologies
 
 In alphabetical order:
 - [CURIE](https://www.w3.org/TR/curie/)
+  - Standardized by W3C
+  - Version 1.0 released on December 2010
+- [JSON-LD](https://json-ld.org/spec/latest/json-ld-api/) (**JSON** for **L**inked **D**ocuments)
+  - Standardized by W3C
+  - Version 1.1 released on September 2018
 - [URI Template](https://tools.ietf.org/html/rfc6570)
   - Standardized by IETF
   - Current Version released in 2012
