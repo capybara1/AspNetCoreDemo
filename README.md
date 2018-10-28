@@ -79,6 +79,9 @@ Further readings:
 - Congestion Control
   - Response
     - [Retry-After](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After)
+- Warning
+  - Response
+    - [Warning](https://developer.mozilla.org/en-US/docs/Web/HTTP/Warning)
 - Discovery
   - Response
     - [Allow](https://developer.mozilla.org/en-US/docs/Web/HTTP/Allow)
@@ -174,11 +177,6 @@ Further readings:
     - [Referrer-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
     - [Tk](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Tk)
     - [Via](https://developer.mozilla.org/en-US/docs/Web/HTTP/Via)
-- Misc
-  - Request
-    - [Pragma](https://developer.mozilla.org/en-US/docs/Web/HTTP/Pragma)
-  - Response
-    - [Warning](https://developer.mozilla.org/en-US/docs/Web/HTTP/Warning)
 
 ## Media Types
 
@@ -187,7 +185,7 @@ In alphabetical order:
   - `application/atom+xml`
 - Form Data
   - multipart/form-data
-- [HTML]()
+- [HTML](https://www.w3.org/TR/html52/)
   - `text/html`
 - [iCalendar](https://tools.ietf.org/html/rfc5545)
   - `text/calendar`
