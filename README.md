@@ -39,9 +39,6 @@ Remarks:
 - Idempotence
   - Cares about the state; doesn't require the response of a repeated operation to be identical
 
-Examples:
-![Examples for modifications](ModificationExamples.svg)
-
 Further readings:
 - [Using HTTP Methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html)
 
@@ -217,6 +214,9 @@ Further readings:
 - [MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)
 - [Incomplete list of MIME types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types)
 
+## Examples
+
+![Examples for modifications](ModificationExamples.svg)
 
 ## Comparison to SOAP
 
