@@ -35,11 +35,12 @@ Method                                                                   | Seman
 [PATCH](https://tools.ietf.org/html/rfc5789)                             | Update    | False                                                                   | False                                                                         | 
 [DELETE](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.7)  | Delete    | False                                                                   | True                                                                          | 
 
-![Examples for modifications](ModificationExamples.svg)
-
-Remarks
+Remarks:
 - Idempotence
   - Cares about the state; doesn't require the response of a repeated operation to be identical
+
+Examples:
+![Examples for modifications](ModificationExamples.svg)
 
 Further readings:
 - [Using HTTP Methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html)
