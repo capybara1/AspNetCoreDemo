@@ -71,6 +71,9 @@ Further readings:
 
 ## Header
 
+- Virtual Hosting
+  - Request
+    - [Host](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host)
 - Connection Management
   - Response/Request
     - [Connection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection)
@@ -151,6 +154,9 @@ Further readings:
     - [Accept-Ranges](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Ranges)
   - Response
     - [Content-Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range)
+- Disallowing Frames
+  - Response
+    - [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
 - [Cross Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/)
   - Request
     - [Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin)
