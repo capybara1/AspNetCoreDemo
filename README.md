@@ -123,13 +123,16 @@ Further readings:
       - [Accept-Language](https://developer.mozilla.org/en-US/docs/Web/HTTP/Accept-Language)
     - Response
       - [Content-Language](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content-Language)
-  - Client Hints
-    - Request
-      - [User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent)
-      - [Device-Memory](https://developer.mozilla.org/en-US/docs/Web/HTTP/Device-Memory)
-      - [DPR](https://developer.mozilla.org/en-US/docs/Web/HTTP/DPR)
-      - [Viewport-Width](https://developer.mozilla.org/en-US/docs/Web/HTTP/Viewport-Width)
-      - [Width](https://developer.mozilla.org/en-US/docs/Web/HTTP/Width)
+  - Client
+    - User-Agent
+      - Request
+        - [User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent)
+    - Client Hints
+      - Request
+        - [Device-Memory](https://developer.mozilla.org/en-US/docs/Web/HTTP/Device-Memory)
+        - [DPR](https://developer.mozilla.org/en-US/docs/Web/HTTP/DPR)
+        - [Viewport-Width](https://developer.mozilla.org/en-US/docs/Web/HTTP/Viewport-Width)
+        - [Width](https://developer.mozilla.org/en-US/docs/Web/HTTP/Width)
 - [Caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
   - Request/Response
     - [Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cache-Control)
@@ -154,7 +157,7 @@ Further readings:
     - [Accept-Ranges](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Ranges)
   - Response
     - [Content-Range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Range)
-- Disallowing Frames
+- Embeddability in frames and iframes
   - Response
     - [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
 - [Cross Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/)
@@ -182,7 +185,7 @@ Further readings:
   - Response
     - [Referrer-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
     - [Tk](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Tk)
-    - [Via](https://developer.mozilla.org/en-US/docs/Web/HTTP/Via)
+    - [Via](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Via)
 
 ## Media Types
 
