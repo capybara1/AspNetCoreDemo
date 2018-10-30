@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
@@ -277,6 +278,59 @@ namespace AspNetCoreDemo.MiddlewareDemo
             var response = await client.GetAsync("/test/1");
 
             Assert.Equal(StatusCodes.Status404NotFound, (int)response.StatusCode);
+        }
+
+        [Fact(DisplayName = "Use route template for url generation")]
+        public async Task UseRouteTemplateForUrlGeneration()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddRouting();
+                })
+                .Configure(app =>
+                {
+                    var defaultHandler = new RouteHandler(httpContext =>
+                    {
+                        var routeValues = new RouteValueDictionary
+                        {
+                            { "name", "Jane" },
+                        };
+
+                        var pathContext = new VirtualPathContext(
+                            httpContext,
+                            null,
+                            routeValues,
+                            "default");
+
+                        var routeData = httpContext.GetRouteData();
+                        var usedRouter = routeData.Routers.First();
+
+                        var routeContext = new RouteContext(httpContext);
+                        var pathData = usedRouter.GetVirtualPath(pathContext);
+                        
+                        return httpContext.Response.WriteAsync($"Next: {pathData.VirtualPath}");
+                    });
+                    var routeBuilder = new RouteBuilder(app, defaultHandler);
+                    routeBuilder.MapRoute("default", "/test/{name}");
+                    var router = routeBuilder.Build();
+                    app.UseRouter(router);
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+
+            var response = await client.GetAsync("/test/John");
+            var greeting = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
+            Assert.Equal("Next: /test/Jane", greeting);
         }
     }
 }
