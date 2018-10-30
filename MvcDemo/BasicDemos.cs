@@ -24,118 +24,9 @@ namespace AspNetCoreDemo.MvcDemo
         {
             _testOutputHelper = testOutputHelper ?? throw new ArgumentNullException(nameof(testOutputHelper));
         }
-
-        [Fact(DisplayName = "Use route handler")]
-        public async Task UseControllerWithRouteHandler()
-        {
-            var builder = new WebHostBuilder()
-                .ConfigureLogging(setup =>
-                {
-                    setup.AddDebug();
-                    setup.SetupDemoLogging(_testOutputHelper);
-                })
-                .ConfigureServices(services =>
-                {
-                    services.AddMvcCore();
-                })
-                .Configure(app =>
-                {
-                    var router = new RouteHandler(context =>
-                    {
-                        return context.Response.WriteAsync("Hello, World!");
-                    });
-                    app.UseRouter(router);
-                });
-
-            var server = new TestServer(builder);
-
-            var client = server.CreateClient();
-
-            var response = await client.GetAsync("/etst?name=World");
-            var greeting = await response.Content.ReadAsStringAsync();
-
-            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
-            Assert.Equal("Hello, World!", greeting);
-        }
-
-        [Fact(DisplayName = "Use route builder with simple routes")]
-        public async Task UseControllerWithRouteBuilderAndSimpleRoutes()
-        {
-            var builder = new WebHostBuilder()
-                .ConfigureLogging(setup =>
-                {
-                    setup.AddDebug();
-                    setup.SetupDemoLogging(_testOutputHelper);
-                })
-                .ConfigureServices(services =>
-                {
-                    services.AddMvcCore();
-                })
-                .Configure(app =>
-                {
-                    app.UseRouter(routes =>
-                    {
-                        routes.MapGet("test/{name}", context =>
-                        {
-                            var name = context.GetRouteValue("name");
-                            return context.Response.WriteAsync($"Hello, {name}!");
-                        });
-                    });
-                });
-
-            var server = new TestServer(builder);
-
-            var client = server.CreateClient();
-
-            var response = await client.GetAsync("/test/World");
-            var greeting = await response.Content.ReadAsStringAsync();
-
-            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
-            Assert.Equal("Hello, World!", greeting);
-        }
-
-        [Fact(DisplayName = "Use route builder with complex routing")]
-        public async Task UseControllerWithRouteBuilder()
-        {
-            var builder = new WebHostBuilder()
-                .ConfigureLogging(setup =>
-                {
-                    setup.AddDebug();
-                    setup.SetupDemoLogging(_testOutputHelper);
-                })
-                .ConfigureServices(services =>
-                {
-                    services.AddMvcCore();
-                })
-                .Configure(app =>
-                {
-                    var defaultHandler = new RouteHandler(context =>
-                    {
-                        return context.Response.WriteAsync("Hello, World!");
-                    });
-                    var routeBuilder = new RouteBuilder(app, defaultHandler);
-                    routeBuilder.MapGet("test/{name}", context =>
-                    {
-                        var name = context.GetRouteValue("name");
-                        return context.Response.WriteAsync($"Hello, {name}!");
-                    });
-                    var router = routeBuilder.Build();
-                    app.UseRouter(defaultHandler);
-                });
-
-            var server = new TestServer(builder);
-
-            var client = server.CreateClient();
-
-            var response = await client.GetAsync("/test");
-            var greeting = await response.Content.ReadAsStringAsync();
-
-            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
-            Assert.Equal("Hello, World!", greeting);
-        }
-
-        [Fact(DisplayName = "Use controller with convention based routing")]
-        public async Task UseControllerWithConventionBasedRouting()
+        
+        [Fact(DisplayName = "Use controller with basic routing (custom route)")]
+        public async Task UseControllerWithBasicRouting()
         {
             var builder = new WebHostBuilder()
                 .ConfigureLogging(setup =>
@@ -168,7 +59,7 @@ namespace AspNetCoreDemo.MvcDemo
             Assert.Equal("Hello, World!", greeting);
         }
 
-        [Fact(DisplayName = "Use controller with convention based routing (MVC default route)")]
+        [Fact(DisplayName = "Use controller with basic routing (MVC default route)")]
         public async Task UseControllerWithConventionBasedRoutingAndMvcDefaultRoute()
         {
             var builder = new WebHostBuilder()
