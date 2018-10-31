@@ -24,9 +24,16 @@ namespace AspNetCoreDemo.MvcDemo
         {
             _testOutputHelper = testOutputHelper ?? throw new ArgumentNullException(nameof(testOutputHelper));
         }
-        
-        [Fact(DisplayName = "Use controller with basic routing (custom route)")]
-        public async Task UseControllerWithBasicRouting()
+
+        // Convention based routing uses the ASP.NET Core route builder
+        // to provide routes that contain the reserved route value names 'area', 
+        // 'controller',and 'action'. The latter are required to resolve
+        // a controller action; the first on is optional. The route value
+        // with name 'controller' refers to the name of a controller class
+        // without the suffix 'Controller'. 
+
+        [Fact(DisplayName = "Use controller with convention based routing (custom route)")]
+        public async Task UseControllerWithConventionBasedRouting()
         {
             var builder = new WebHostBuilder()
                 .ConfigureLogging(setup =>
@@ -59,7 +66,7 @@ namespace AspNetCoreDemo.MvcDemo
             Assert.Equal("Hello, World!", greeting);
         }
 
-        [Fact(DisplayName = "Use controller with basic routing (MVC default route)")]
+        [Fact(DisplayName = "Use controller with convention based routing (MVC default route)")]
         public async Task UseControllerWithConventionBasedRoutingAndMvcDefaultRoute()
         {
             var builder = new WebHostBuilder()
@@ -88,6 +95,10 @@ namespace AspNetCoreDemo.MvcDemo
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
             Assert.Equal("Hello, World!", greeting);
         }
+
+        // Attribute routing relies on the existence of a Route-attribute on a controller class.
+        // Controller action may also define a part of the final route by using a Route-attribute
+        // or the constructor overloads of the Http[Verb]-attributes.
 
         [Fact(DisplayName = "Use Controller with attribute routing to action with multiple methods")]
         public async Task UseControllerWithAttributeRoutingToActionWithMultipleMethods()
