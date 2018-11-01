@@ -75,10 +75,10 @@ Further readings:
   - Request
     - [Host](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host)
 - Connection Management
-  - Response/Request
-    - [Connection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection)
-    - [Keep-Alive](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Keep-Alive)
-  - *Note*: In HTTP/2 connection management is handled by other mechanisms
+  - Legacy (up to HTTP/1.1)
+    - General
+      - [Connection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection)
+      - [Keep-Alive](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Keep-Alive)
 - Congestion Control
   - Response
     - [Retry-After](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After)
