@@ -103,10 +103,14 @@ Further readings:
     - [Proxy-Authenticate](https://developer.mozilla.org/en-US/docs/Web/HTTP/Proxy-Authenticate)
 - [Conditional Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Conditional_requests)
   - Strong Validation
+    - Response
+      - [ETag](https://developer.mozilla.org/en-US/docs/Web/HTTP/ETag)
     - Request
       - [If-Match](https://developer.mozilla.org/en-US/docs/Web/HTTP/If-Match)
       - [If-None-Match](https://developer.mozilla.org/en-US/docs/Web/HTTP/If-None-Match)
   - Weak Validation
+    - Response
+      - [Last-Modified](https://developer.mozilla.org/en-US/docs/Web/HTTP/Last-Modified)
     - Request
       - [If-Modified-Since](https://developer.mozilla.org/en-US/docs/Web/HTTP/If-Modified-Since)
       - [If-Unmodified-Since](https://developer.mozilla.org/en-US/docs/Web/HTTP/If-Unmodified-Since)
@@ -134,14 +138,21 @@ Further readings:
         - [Viewport-Width](https://developer.mozilla.org/en-US/docs/Web/HTTP/Viewport-Width)
         - [Width](https://developer.mozilla.org/en-US/docs/Web/HTTP/Width)
 - [Caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
-  - Request/Response
-    - [Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cache-Control)
-  - Response
-    - [Age](https://developer.mozilla.org/en-US/docs/Web/HTTP/Age)
-    - [ETag](https://developer.mozilla.org/en-US/docs/Web/HTTP/ETag)
-    - [Vary](https://developer.mozilla.org/en-US/docs/Web/HTTP/Vary)
-    - [Last-Modified](https://developer.mozilla.org/en-US/docs/Web/HTTP/Last-Modified)
-    - [Expires](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expires)
+  - Control
+    - General
+      - [Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cache-Control)
+      - Legacy (HTTP/1.0)
+        - [Pragma](https://developer.mozilla.org/en-US/docs/Web/HTTP/Pragma)
+  - Meta Information
+    - Response
+      - [Vary](https://developer.mozilla.org/en-US/docs/Web/HTTP/Vary)
+      - *See also response headers for conditional requests above*
+      - Legacy (HTTP/1.0)
+        - [Expires](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expires)
+  - Information from Cache
+    - Response
+      - [Age](https://developer.mozilla.org/en-US/docs/Web/HTTP/Age)
+      - [Date](https://developer.mozilla.org/en-US/docs/Web/HTTP/Date)
 - [Compression](https://developer.mozilla.org/en-US/docs/Web/HTTP/Compression)
   - Request
     - [Accept-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Accept-Encoding)
@@ -186,6 +197,9 @@ Further readings:
     - [Referrer-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
     - [Tk](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Tk)
     - [Via](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Via)
+- Information
+  - Response
+    - [Server](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server)
 
 ## Media Types
 
