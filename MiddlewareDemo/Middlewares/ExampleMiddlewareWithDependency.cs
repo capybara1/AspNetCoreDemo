@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using AspNetCoreDemo.MiddlewareDemo.Contracts;
 using Microsoft.AspNetCore.Http;
-using System.Text.RegularExpressions;
-using AspNetCoreDemo.MiddlewareDemo.Contracts;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace AspNetCoreDemo.MiddlewareDemo.Middlewares
 {

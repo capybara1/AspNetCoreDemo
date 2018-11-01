@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authentication;
-using System.Security.Claims;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System.Security.Claims;
 using System.Text.Encodings.Web;
+using System.Threading.Tasks;
 
 namespace AspNetCoreDemo.MiddlewareDemo.Security.Authentication
 {

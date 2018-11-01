@@ -1,6 +1,4 @@
-﻿using AspNetCoreDemo.MiddlewareDemo.Contracts;
-using AspNetCoreDemo.MiddlewareDemo.Middlewares;
-using AspNetCoreDemo.Utils;
+﻿using AspNetCoreDemo.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -8,7 +6,6 @@ using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Moq;
 using System;
 using System.Linq;
 using System.Text;
