@@ -125,7 +125,7 @@ namespace AspNetCoreDemo.MvcDemo
             var server = new TestServer(builder);
 
             var client = server.CreateClient();
-            
+
             var response = await client.PutAsync("/explicit/test1", null);
             var greeting = await response.Content.ReadAsStringAsync();
 
@@ -305,7 +305,7 @@ namespace AspNetCoreDemo.MvcDemo
             var server = new TestServer(builder);
 
             var client = server.CreateClient();
-            
+
             await Assert.ThrowsAnyAsync<AmbiguousActionException>(async () => await client.GetAsync("/explicit/test7"));
         }
 
@@ -325,7 +325,8 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .Configure(app =>
                 {
-                    app.UseMvc(routes => {
+                    app.UseMvc(routes =>
+                    {
                         routes.MapRoute("default", "/",
                             new
                             {
@@ -343,7 +344,7 @@ namespace AspNetCoreDemo.MvcDemo
 
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
         }
-        
+
         [Fact(DisplayName = "Use Controller Action with model return value")]
         public async Task UseControllerActionWithModelReturnValue()
         {
@@ -361,7 +362,8 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .Configure(app =>
                 {
-                    app.UseMvc(routes => {
+                    app.UseMvc(routes =>
+                    {
                         routes.MapRoute("default", "/",
                             new
                             {
