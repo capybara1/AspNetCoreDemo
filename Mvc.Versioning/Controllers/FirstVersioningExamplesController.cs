@@ -18,7 +18,6 @@ namespace AspNetCoreDemo.Mvc.Versioning.Controllers
         [HttpGet("")]
         public IActionResult VersionedAction()
         {
-            _logger.LogInformation($"In {nameof(FirstVersioningExamplesController)}");
             return Ok("Hello, World!");
         }
     }

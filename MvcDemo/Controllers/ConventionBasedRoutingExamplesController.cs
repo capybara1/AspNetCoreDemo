@@ -14,7 +14,6 @@ namespace AspNetCoreDemo.MvcDemo.Controllers
 
         public IActionResult Get(int? id)
         {
-            _logger.LogInformation($"In {nameof(ConventionBasedRoutingExamplesController)}");
             _logger.LogInformation($"Povided id is {id}");
             return Ok("Hello, World!");
         }

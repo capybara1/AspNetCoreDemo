@@ -15,13 +15,10 @@ namespace AspNetCoreDemo.MvcDemo.Controllers
         }
 
         public void NoResultAction()
-        {
-            _logger.LogInformation($"In {nameof(TestController)}.{nameof(NoResultAction)}");
-        }
+        { }
 
         public ExampleModel ModelResultAction()
         {
-            _logger.LogInformation($"In {nameof(TestController)}.{nameof(ModelResultAction)}");
             return new ExampleModel
             {
                 Text = "my example",
@@ -30,13 +27,11 @@ namespace AspNetCoreDemo.MvcDemo.Controllers
 
         public IActionResult GenericResultAction()
         {
-            _logger.LogInformation($"In {nameof(TestController)}.{nameof(GenericResultAction)}");
             return NoContent();
         }
 
         public ActionResult<ExampleModel> GenericResultActionOrModelResult()
         {
-            _logger.LogInformation($"In {nameof(TestController)}.{nameof(GenericResultActionOrModelResult)}");
             if (!HttpContext.User.Identity.IsAuthenticated)
             {
                 return NotFound();
@@ -49,14 +44,12 @@ namespace AspNetCoreDemo.MvcDemo.Controllers
 
         public IActionResult FailingAction()
         {
-            _logger.LogInformation($"In {nameof(TestController)}.{nameof(FailingAction)}");
             throw new System.Exception("Unexpected error");
         }
 
         [ServiceFilter(typeof(ExampleAsyncActionFilterWithDependencyInjection))]
         public IActionResult ActionWithDependencyInjectionFilter()
         {
-            _logger.LogInformation($"In {nameof(TestController)}.{nameof(ActionWithDependencyInjectionFilter)}");
             return Ok("Hello, Other World!");
         }
     }

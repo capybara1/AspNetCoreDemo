@@ -1,7 +1,6 @@
 ﻿using AspNetCoreDemo.MvcDemo.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace AspNetCoreDemo.MvcDemo.Controllers
