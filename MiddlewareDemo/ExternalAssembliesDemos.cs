@@ -72,10 +72,11 @@ namespace AspNetCoreDemo.MiddlewareDemo
                 })
                 .Configure(app =>
                 {
-                    app.ApplicationServices.GetRequiredService<IExternalService>();
+                    Assert.Throws<InvalidOperationException>(() => app.ApplicationServices.GetRequiredService<IExternalService>());
                 });
 
-            Assert.Throws<InvalidOperationException>(() => new TestServer(webHostBuilder));
+            using (new TestServer(webHostBuilder))
+            { };
         }
     }
 }
