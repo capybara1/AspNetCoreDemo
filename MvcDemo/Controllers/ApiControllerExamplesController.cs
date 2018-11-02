@@ -4,18 +4,25 @@ namespace AspNetCoreDemo.MvcDemo.Controllers
 {
     [Route("ApiController")]
     [ApiController]
-    [Produces("application/json")] // Required to perform output formatting
+    [Produces("application/json")]
     public class ApiControllerExamplesController : ControllerBase
     {
-        [HttpGet]
+        [HttpGet(Name = "getApiControllerExample")]
         [ProducesResponseType(404)]
-        public ActionResult<string> TestAction(int param)
+        public ActionResult<string> Get(int id)
         {
-            if (param > 10)
+            if (id > 10)
             {
-                return BadRequest();
+                return NotFound();
             }
             return "Hello, World!";
+        }
+
+        [HttpPost]
+        public IActionResult Post(Model.ExampleModel model)
+        {
+            var url = Url.Link("getApiControllerExample", new { id = 10 });
+            return Created(url , null);
         }
     }
 }
