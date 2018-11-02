@@ -27,8 +27,8 @@ namespace AspNetCoreDemo.MvcDemo
             _testOutputHelper = testOutputHelper ?? throw new ArgumentNullException(nameof(testOutputHelper));
         }
         
-        [Fact(DisplayName = "")]
-        public async Task UseControllerWithConventionBasedRouting()
+        [Fact(DisplayName = "Add global convention to modify application model")]
+        public async Task AddGlobalConventionToModifyApplicationModel()
         {
             var builder = new WebHostBuilder()
                 .ConfigureLogging(setup =>
