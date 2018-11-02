@@ -1,5 +1,5 @@
-using AspNetCoreDemo.MvcDemo.Controllers;
 using AspNetCoreDemo.Utils;
+using AspNetCoreDemo.Utils.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -190,7 +190,7 @@ namespace AspNetCoreDemo.MvcDemo
             var methodName = await response.Content.ReadAsStringAsync();
 
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
-            Assert.Equal(nameof(AttributeRoutingExamplesController.SecondActionWithConflictingUnorderedRoutes), methodName);
+            Assert.Equal(nameof(Controllers.AttributeRoutingExamplesController.SecondActionWithConflictingUnorderedRoutes), methodName);
         }
 
         [Fact(DisplayName = "Use Controller with attribute routing to action with conflicting unordered routes")]
@@ -209,7 +209,7 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .Configure(app =>
                 {
-                    app.UseMvcWithDefaultRoute();
+                    app.UseMvc();
                 });
 
             var server = new TestServer(builder);
@@ -220,7 +220,7 @@ namespace AspNetCoreDemo.MvcDemo
             var methodName = await response.Content.ReadAsStringAsync();
 
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
-            Assert.Equal(nameof(AttributeRoutingExamplesController.SecondActionWithConflictingOrderedRoutes), methodName);
+            Assert.Equal(nameof(Controllers.AttributeRoutingExamplesController.SecondActionWithConflictingOrderedRoutes), methodName);
         }
 
         [Fact(DisplayName = "Use Controller with attribute routing to action with conflicting unordered routes")]
@@ -250,7 +250,7 @@ namespace AspNetCoreDemo.MvcDemo
             var methodName = await response.Content.ReadAsStringAsync();
 
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
-            Assert.Equal(nameof(AttributeRoutingExamplesController.FirstActionWithConstrainedParameterInRoute), methodName);
+            Assert.Equal(nameof(Controllers.AttributeRoutingExamplesController.FirstActionWithConstrainedParameterInRoute), methodName);
         }
 
         [Fact(DisplayName = "Use Controller with attribute routing to action with catch all")]
@@ -280,7 +280,7 @@ namespace AspNetCoreDemo.MvcDemo
             var methodName = await response.Content.ReadAsStringAsync();
 
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
-            Assert.Equal(nameof(AttributeRoutingExamplesController.ActionWithCatchAll), methodName);
+            Assert.Equal(nameof(Controllers.AttributeRoutingExamplesController.ActionWithCatchAll), methodName);
         }
 
         [Fact(DisplayName = "Use Controller with attribute routing to ambiguous actions")]
@@ -325,14 +325,21 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .Configure(app =>
                 {
-                    app.UseMvcWithDefaultRoute();
+                    app.UseMvc(routes => {
+                        routes.MapRoute("default", "/",
+                            new
+                            {
+                                controller = nameof(Controllers.TestController).RemoveControllerSuffix(),
+                                action = nameof(Controllers.TestController.NoResultAction),
+                            });
+                    });
                 });
 
             var server = new TestServer(builder);
 
             var client = server.CreateClient();
 
-            var response = await client.PutAsync("/test/noResultAction", null);
+            var response = await client.PutAsync("/", null);
 
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
         }
@@ -354,45 +361,21 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .Configure(app =>
                 {
-                    app.UseMvcWithDefaultRoute();
+                    app.UseMvc(routes => {
+                        routes.MapRoute("default", "/",
+                            new
+                            {
+                                controller = nameof(Controllers.TestController).RemoveControllerSuffix(),
+                                action = nameof(Controllers.TestController.ModelResultAction),
+                            });
+                    });
                 });
 
             var server = new TestServer(builder);
 
             var client = server.CreateClient();
 
-            var response = await client.PutAsync("/test/modelResultAction", null);
-            var value = await response.Content.ReadAsStringAsync();
-
-            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
-            Assert.Equal("{\"priority\":0,\"text\":\"my example\"}", value);
-        }
-        
-        [Fact(DisplayName = "Use Controller Action with CreatedResponse")]
-        public async Task UseControllerActionWithCreatedResponse()
-        {
-            var builder = new WebHostBuilder()
-                .ConfigureLogging(setup =>
-                {
-                    setup.AddDebug();
-                    setup.SetupDemoLogging(_testOutputHelper);
-                })
-                .ConfigureServices(services =>
-                {
-                    services.AddMvcCore()
-                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                        .AddJsonFormatters();
-                })
-                .Configure(app =>
-                {
-                    app.UseMvcWithDefaultRoute();
-                });
-
-            var server = new TestServer(builder);
-
-            var client = server.CreateClient();
-
-            var response = await client.PutAsync("/test/modelResultAction", null);
+            var response = await client.PutAsync("/", null);
             var value = await response.Content.ReadAsStringAsync();
 
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);

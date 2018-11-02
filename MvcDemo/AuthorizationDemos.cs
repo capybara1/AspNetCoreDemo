@@ -132,7 +132,7 @@ namespace AspNetCoreDemo.MvcDemo
                 .Configure(app =>
                 {
                     app.UseAuthentication();
-                    app.UseMvcWithDefaultRoute();
+                    app.UseMvc();
                 });
 
             var server = new TestServer(builder);

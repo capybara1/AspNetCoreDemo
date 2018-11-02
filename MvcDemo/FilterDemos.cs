@@ -2,6 +2,7 @@
 using AspNetCoreDemo.MvcDemo.Filter;
 using AspNetCoreDemo.MvcDemo.Implementations;
 using AspNetCoreDemo.Utils;
+using AspNetCoreDemo.Utils.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -45,14 +46,21 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .Configure(app =>
                 {
-                    app.UseMvcWithDefaultRoute();
+                    app.UseMvc(routes => {
+                        routes.MapRoute("default", "/",
+                            new
+                            {
+                                controller = nameof(Controllers.TestController).RemoveControllerSuffix(),
+                                action = nameof(Controllers.TestController.FailingAction),
+                            });
+                    });
                 });
 
             var server = new TestServer(builder);
 
             var client = server.CreateClient();
 
-            var response = await client.GetAsync("/test/failingAction");
+            var response = await client.GetAsync("/");
 
             Assert.Equal(StatusCodes.Status500InternalServerError, (int)response.StatusCode);
         }
@@ -75,14 +83,21 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .Configure(app =>
                 {
-                    app.UseMvcWithDefaultRoute();
+                    app.UseMvc(routes => {
+                        routes.MapRoute("default", "/",
+                            new
+                            {
+                                controller = nameof(Controllers.TestController).RemoveControllerSuffix(),
+                                action = nameof(Controllers.TestController.ActionWithDependencyInjectionFilter),
+                            });
+                    });
                 });
 
             var server = new TestServer(builder);
 
             var client = server.CreateClient();
 
-            var response = await client.GetAsync("/test/actionWithDependencyInjectionFilter");
+            var response = await client.GetAsync("/");
 
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
         }

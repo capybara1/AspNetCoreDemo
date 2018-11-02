@@ -40,7 +40,7 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .Configure(app =>
                 {
-                    app.UseMvcWithDefaultRoute();
+                    app.UseMvc();
                 });
 
             var server = new TestServer(builder);
@@ -67,7 +67,7 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .Configure(app =>
                 {
-                    app.UseMvcWithDefaultRoute();
+                    app.UseMvc();
                 });
 
             var server = new TestServer(builder);
