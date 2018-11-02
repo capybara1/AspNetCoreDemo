@@ -15,7 +15,7 @@ using Xunit.Abstractions;
 namespace AspNetCoreDemo.MiddlewareDemo
 {
     [Trait("Category", "ASP.NET Core Middleware / External Assemblies")]
-    public partial class ExternalAssembliesDemos
+    public partial class ExternalAssembliesDemos : IDisposable
     {
         private readonly ITestOutputHelper _testOutputHelper;
 
@@ -27,10 +27,17 @@ namespace AspNetCoreDemo.MiddlewareDemo
         [Fact(DisplayName = "Include startup of external assembly")]
         public async Task IncludeStartupOfExternalAssembly()
         {
+            await Assert.ThrowsAsync<InvalidOperationException>(async () => await PerformTest());
+
             Environment.SetEnvironmentVariable(
                 "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES",
                 "AspNetCoreDemo.ExternalTestLibrary");
 
+            await PerformTest();
+        }
+
+        private async Task PerformTest()
+        {
             var webHostBuilder = new WebHostBuilder()
                 .ConfigureLogging(setup =>
                 {
@@ -61,22 +68,11 @@ namespace AspNetCoreDemo.MiddlewareDemo
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
         }
 
-        [Fact(DisplayName = "Don't include startup of external assembly")]
-        public void DontIncludeStartupOfExternalAssembly()
+        public void Dispose()
         {
-            var webHostBuilder = new WebHostBuilder()
-                .ConfigureLogging(setup =>
-                {
-                    setup.AddDebug();
-                    setup.SetupDemoLogging(_testOutputHelper);
-                })
-                .Configure(app =>
-                {
-                    Assert.Throws<InvalidOperationException>(() => app.ApplicationServices.GetRequiredService<IExternalService>());
-                });
-
-            using (new TestServer(webHostBuilder))
-            { };
+            Environment.SetEnvironmentVariable(
+                "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES",
+                string.Empty);
         }
     }
 }
