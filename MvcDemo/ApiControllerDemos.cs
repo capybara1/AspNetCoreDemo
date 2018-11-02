@@ -38,7 +38,8 @@ namespace AspNetCoreDemo.MvcDemo
                 .ConfigureServices(services =>
                 {
                     services.AddMvcCore()
-                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                        .AddJsonFormatters();
                     services.Configure<ApiBehaviorOptions>(options =>
                     {
                         // Available but not used in this example
@@ -57,7 +58,6 @@ namespace AspNetCoreDemo.MvcDemo
             var server = new TestServer(builder);
 
             var client = server.CreateClient();
-            client.DefaultRequestHeaders.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("text/plain"));
 
             var response = await client.GetAsync("/apicontroller?param=invalid");
 
