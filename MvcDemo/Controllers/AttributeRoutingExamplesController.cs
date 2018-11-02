@@ -20,6 +20,12 @@ namespace AspNetCoreDemo.MvcDemo.Controllers
             return nameof(ActionWithAbsoluteRoute);
         }
 
+        [HttpGet("test_[controller]_[action]")]
+        public string ActionWithPlaceholdersInRoute()
+        {
+            return nameof(ActionWithPlaceholdersInRoute);
+        }
+
         [HttpGet]
         [HttpPut]
         [HttpDelete]

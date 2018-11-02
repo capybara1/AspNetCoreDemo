@@ -133,6 +133,36 @@ namespace AspNetCoreDemo.MvcDemo
             Assert.Equal(nameof(Controllers.AttributeRoutingExamplesController.ActionWithAbsoluteRoute), methodName);
         }
 
+        [Fact(DisplayName = "Use Controller with attribute routing to action with placeholders in route")]
+        public async Task UseControllerWithAttributeRoutingToActionWithPlaceholdersInRoute()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+                })
+                .Configure(app =>
+                {
+                    app.UseMvc();
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+
+            var response = await client.GetAsync("/explicit/test_AttributeRoutingExamples_ActionWithPlaceholdersInRoute");
+            var methodName = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
+            Assert.Equal(nameof(Controllers.AttributeRoutingExamplesController.ActionWithPlaceholdersInRoute), methodName);
+        }
+
         [Fact(DisplayName = "Use Controller with attribute routing to action with multiple methods")]
         public async Task UseControllerWithAttributeRoutingToActionWithMultipleMethods()
         {
