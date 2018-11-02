@@ -14,78 +14,84 @@ namespace AspNetCoreDemo.MvcDemo.Controllers
             _logger = logger ?? throw new System.ArgumentNullException(nameof(logger));
         }
 
+        [HttpGet("/absolute_route")]
+        public string ActionWithAbsoluteRoute()
+        {
+            return nameof(ActionWithAbsoluteRoute);
+        }
+
         [HttpGet]
         [HttpPut]
         [HttpDelete]
         [Route("test1")]
-        public IActionResult ActionWithMultipleMethods()
+        public string ActionWithMultipleMethods()
         {
-            return Ok("Hello, Explicit World!");
+            return "Hello, Explicit World!";
         }
 
         [HttpGet]
         [Route("test2/first")]
         [Route("test2/second")]
-        public IActionResult ActionWithMultipleRoutes()
+        public string ActionWithMultipleRoutes()
         {
-            return Ok("Hello, Explicit World!");
+            return "Hello, Explicit World!";
         }
 
         [HttpGet("test3")]
-        public IActionResult FirstActionWithConflictingUnorderedRoutes()
+        public string FirstActionWithConflictingUnorderedRoutes()
         {
-            return Ok(nameof(FirstActionWithConflictingUnorderedRoutes));
+            return nameof(FirstActionWithConflictingUnorderedRoutes);
         }
 
         [HttpGet("test3/morespecific")] // Executes before less specific routes like "test1"
-        public IActionResult SecondActionWithConflictingUnorderedRoutes()
+        public string SecondActionWithConflictingUnorderedRoutes()
         {
-            return Ok(nameof(SecondActionWithConflictingUnorderedRoutes));
+            return nameof(SecondActionWithConflictingUnorderedRoutes);
         }
 
         [HttpGet]
         [Route("test4", Order = 1)]
-        public IActionResult FirstActionWithConflictingOrderedRoutes()
+        public string FirstActionWithConflictingOrderedRoutes()
         {
-            return Ok(nameof(FirstActionWithConflictingOrderedRoutes));
+            return nameof(FirstActionWithConflictingOrderedRoutes);
         }
 
         [HttpGet]
         [Route("test4/morespecific", Order = 2)]
-        public IActionResult SecondActionWithConflictingOrderedRoutes()
+        public string SecondActionWithConflictingOrderedRoutes()
         {
-            return Ok(nameof(SecondActionWithConflictingOrderedRoutes));
+            return nameof(SecondActionWithConflictingOrderedRoutes);
         }
 
         [HttpGet("test5/{param:int}")]
-        public IActionResult FirstActionWithConstrainedParameterInRoute(int param)
+        public string FirstActionWithConstrainedParameterInRoute(int param)
         {
-            return Ok(nameof(FirstActionWithConstrainedParameterInRoute));
+            return nameof(FirstActionWithConstrainedParameterInRoute);
         }
 
         [HttpGet("test5/{param:alpha}")]
-        public IActionResult SecondActionWithConstrainedParameterInRoute(string param)
+        public string SecondActionWithConstrainedParameterInRoute(string param)
         {
-            return Ok(nameof(SecondActionWithConstrainedParameterInRoute));
+            return nameof(SecondActionWithConstrainedParameterInRoute);
         }
 
         [HttpGet("test6/{*remainder}")]
-        public IActionResult ActionWithCatchAll(string remainder)
+        public string ActionWithCatchAll(string remainder)
         {
             _logger.LogInformation($"{nameof(remainder)} = \"{remainder}\"");
-            return Ok(nameof(ActionWithCatchAll));
+            return nameof(ActionWithCatchAll);
         }
 
         [HttpGet("test7")]
-        public IActionResult FirstActionWithConflictingNamedRoute([Required]string param)
+        public string FirstActionWithConflictingNamedRoute([Required]string param)
         {
-            return Ok(nameof(FirstActionWithConflictingNamedRoute));
+            return nameof(FirstActionWithConflictingNamedRoute);
         }
 
         [HttpGet("test7")]
-        public IActionResult SecondActionWithConflictingNamedRoute()
+        public string SecondActionWithConflictingNamedRoute()
         {
-            return Ok(nameof(SecondActionWithConflictingNamedRoute));
+            return nameof(SecondActionWithConflictingNamedRoute);
         }
     }
 }

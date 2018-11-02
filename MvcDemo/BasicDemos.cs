@@ -103,6 +103,36 @@ namespace AspNetCoreDemo.MvcDemo
         // Controller action may also define a part of the final route by using a Route-attribute
         // or the constructor overloads of the Http[Verb]-attributes.
 
+        [Fact(DisplayName = "Use Controller with attribute routing to action with absolute route")]
+        public async Task UseControllerWithAttributeRoutingToActionWithAbsoluteRoute()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+                })
+                .Configure(app =>
+                {
+                    app.UseMvc();
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+
+            var response = await client.GetAsync("/absolute_route");
+            var methodName = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
+            Assert.Equal(nameof(Controllers.AttributeRoutingExamplesController.ActionWithAbsoluteRoute), methodName);
+        }
+
         [Fact(DisplayName = "Use Controller with attribute routing to action with multiple methods")]
         public async Task UseControllerWithAttributeRoutingToActionWithMultipleMethods()
         {
