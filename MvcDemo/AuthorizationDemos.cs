@@ -4,6 +4,7 @@ using AspNetCoreDemo.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -122,6 +123,7 @@ namespace AspNetCoreDemo.MvcDemo
                     services.AddAuthentication("DemoScheme")
                         .AddScheme<DemoAuthenticationSchemeOptions, DemoAuthenticationHandler>("DemoScheme", opt => { });
                     services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                         .AddAuthorization(opt => opt.AddPolicy( // Attention: This is not the middleware!
                             "DemoPolicy",
                             policyBuilder => policyBuilder

@@ -3,6 +3,7 @@ using AspNetCoreDemo.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Internal;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.TestHost;
@@ -43,7 +44,8 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .ConfigureServices(services =>
                 {
-                    services.AddMvcCore();
+                    services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
                 })
                 .Configure(app =>
                 {
@@ -77,7 +79,8 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .ConfigureServices(services =>
                 {
-                    services.AddMvcCore();
+                    services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
                 })
                 .Configure(app =>
                 {
@@ -111,7 +114,8 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .ConfigureServices(services =>
                 {
-                    services.AddMvcCore();
+                    services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
                 })
                 .Configure(app =>
                 {
@@ -140,7 +144,8 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .ConfigureServices(services =>
                 {
-                    services.AddMvcCore();
+                    services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
                 })
                 .Configure(app =>
                 {
@@ -169,7 +174,8 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .ConfigureServices(services =>
                 {
-                    services.AddMvcCore();
+                    services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
                 })
                 .Configure(app =>
                 {
@@ -198,7 +204,8 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .ConfigureServices(services =>
                 {
-                    services.AddMvcCore();
+                    services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
                 })
                 .Configure(app =>
                 {
@@ -227,7 +234,8 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .ConfigureServices(services =>
                 {
-                    services.AddMvcCore();
+                    services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
                 })
                 .Configure(app =>
                 {
@@ -256,7 +264,8 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .ConfigureServices(services =>
                 {
-                    services.AddMvcCore();
+                    services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
                 })
                 .Configure(app =>
                 {
@@ -285,7 +294,8 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .ConfigureServices(services =>
                 {
-                    services.AddMvcCore();
+                    services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
                 })
                 .Configure(app =>
                 {
@@ -310,7 +320,8 @@ namespace AspNetCoreDemo.MvcDemo
                 })
                 .ConfigureServices(services =>
                 {
-                    services.AddMvcCore();
+                    services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
                 })
                 .Configure(app =>
                 {
@@ -338,6 +349,7 @@ namespace AspNetCoreDemo.MvcDemo
                 .ConfigureServices(services =>
                 {
                     services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                         .AddJsonFormatters();
                 })
                 .Configure(app =>
@@ -368,6 +380,7 @@ namespace AspNetCoreDemo.MvcDemo
                 .ConfigureServices(services =>
                 {
                     services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                         .AddJsonFormatters();
                 })
                 .Configure(app =>

@@ -1,6 +1,7 @@
 ﻿using AspNetCoreDemo.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -43,6 +44,7 @@ namespace AspNetCoreDemo.MvcDemo
                         .WithOrigins("http://example.com")
                         .AllowAnyHeader()));
                 services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                     .AddCors(); // Attention: This is not the middleware! Requires the Microsoft.AspNetCore.Mvc.Cors package
             })
             .Configure(app =>

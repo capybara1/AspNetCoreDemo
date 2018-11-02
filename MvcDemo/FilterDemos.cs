@@ -5,6 +5,7 @@ using AspNetCoreDemo.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -37,9 +38,10 @@ namespace AspNetCoreDemo.MvcDemo
                 .ConfigureServices(services =>
                 {
                     services.AddMvcCore(setup =>
-                    {
-                        setup.Filters.Add<ExceptionFilter>();
-                    });
+                        {
+                            setup.Filters.Add<ExceptionFilter>();
+                        })
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
                 })
                 .Configure(app =>
                 {
@@ -67,7 +69,8 @@ namespace AspNetCoreDemo.MvcDemo
                 .ConfigureServices(services =>
                 {
                     services.AddTransient<IExampleService, ServiceImplementationA>();
-                    services.AddMvcCore();
+                    services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
                     services.AddScoped<ExampleAsyncActionFilterWithDependencyInjection>(); // Important
                 })
                 .Configure(app =>

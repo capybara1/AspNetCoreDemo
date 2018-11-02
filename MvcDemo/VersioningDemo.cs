@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
@@ -37,6 +38,7 @@ namespace AspNetCoreDemo.MvcDemo
         //        .ConfigureServices(services =>
         //        {
         //            services.AddMvcCore()
+        //                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
         //                .AddJsonFormatters();
         //            services.AddApiVersioning(setup => setup.ApiVersionReader = new UrlSegmentApiVersionReader());
         //        })
@@ -68,6 +70,7 @@ namespace AspNetCoreDemo.MvcDemo
                 .ConfigureServices(services =>
                 {
                     services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                         .AddJsonFormatters();
                     services.AddApiVersioning(setup => setup.ApiVersionReader = new HeaderApiVersionReader("Api-Version"));
                 })
@@ -100,6 +103,7 @@ namespace AspNetCoreDemo.MvcDemo
                 .ConfigureServices(services =>
                 {
                     services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                         .AddJsonFormatters();
                     services.AddApiVersioning(setup => setup.ApiVersionReader = new MediaTypeApiVersionReader());
                 })
@@ -132,6 +136,7 @@ namespace AspNetCoreDemo.MvcDemo
                 .ConfigureServices(services =>
                 {
                     services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                         .AddJsonFormatters();
                     services.AddApiVersioning(setup => setup.ApiVersionReader = new QueryStringApiVersionReader("v"));
                 })
