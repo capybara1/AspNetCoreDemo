@@ -85,5 +85,41 @@ namespace AspNetCoreDemo.MvcDemo
 
             Assert.Equal(StatusCodes.Status400BadRequest, (int)response.StatusCode);
         }
+
+        [Fact(DisplayName = "Use model metadata provider to modify binding behavior")]
+        public async Task UseModelMetadataProviderToModifyBindingBehavior()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore(setup =>
+                        {
+                            setup.ModelMetadataDetailsProviders.Add(new MetadataProviders.RequireQueryParameters());
+                        })
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                        .AddJsonFormatters();
+                })
+                .Configure(app =>
+                {
+                    app.UseMvc();
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+
+            var response = await client.GetAsync("validation/required_query");
+
+            Assert.Equal(StatusCodes.Status400BadRequest, (int)response.StatusCode);
+
+            var content = await response.Content.ReadAsStringAsync();
+            var logger = server.Host.Services.GetRequiredService<ILogger<InputValidationDemos>>();
+            logger.LogInformation(content);
+        }
     }
 }

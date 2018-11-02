@@ -24,7 +24,7 @@ namespace AspNetCoreDemo.MvcDemo.Controllers
                 {
                     _logger.LogInformation($"Error at {error.Key}: {error.Message}");
                 }
-                return BadRequest();
+                return BadRequest(ModelState);
             }
 
             return NoContent();
@@ -39,7 +39,22 @@ namespace AspNetCoreDemo.MvcDemo.Controllers
                 {
                     _logger.LogInformation($"Error at {error.Key}: {error.Message}");
                 }
-                return BadRequest();
+                return BadRequest(ModelState);
+            }
+
+            return NoContent();
+        }
+
+        [HttpGet("required_query")]
+        public IActionResult ActionWithSimpleQueryParameter([FromQuery]string queryParam)
+        {
+            if (!ModelState.IsValid)
+            {
+                foreach (var error in ModelState.SelectMany(kvp => kvp.Value.Errors.Select(err => new { kvp.Key, Message = err.ErrorMessage })))
+                {
+                    _logger.LogInformation($"Error at {error.Key}: {error.Message}");
+                }
+                return BadRequest(ModelState);
             }
 
             return NoContent();

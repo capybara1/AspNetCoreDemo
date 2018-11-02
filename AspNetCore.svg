@@ -630,7 +630,7 @@
          sodipodi:role="line">Middleware</tspan></text>
     <g
        id="g5276"
-       transform="translate(2.1166667)">
+       transform="translate(2.2678572)">
       <g
          id="g5266">
         <path
@@ -1321,7 +1321,7 @@
              y="306.52512"
              x="276.77005"
              sodipodi:role="line"
-             id="tspan4701">Authorization</tspan></text>
+             id="tspan4701">Authorization F.</tspan></text>
       </g>
       <g
          transform="translate(0,0.73230451)"
@@ -1339,11 +1339,11 @@
            x="258.75787"
            y="297.55655"
            id="text4720"><tspan
-             id="tspan4718"
              sodipodi:role="line"
              x="258.75787"
              y="297.55655"
-             style="font-size:3.88055563px;text-align:center;text-anchor:middle;stroke-width:0.26458332">Ressource</tspan></text>
+             style="font-size:3.88055563px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+             id="tspan4734">Ressource Filter</tspan></text>
       </g>
       <g
          transform="translate(0,-1.2722386)"
@@ -1365,7 +1365,7 @@
              y="269.51093"
              x="258.75787"
              sodipodi:role="line"
-             id="tspan4780">Action</tspan></text>
+             id="tspan4780">Action Filter</tspan></text>
       </g>
       <g
          transform="translate(0,-3.027916e-6)"
@@ -1401,7 +1401,7 @@
            x="228.18053"
            y="272.67761" />
         <g
-           transform="translate(-22.667226,-27.9335)"
+           transform="translate(-25.313061,-27.9335)"
            id="g4818">
           <rect
              style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.26499996;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1420,7 +1420,7 @@
                y="306.52512"
                x="276.77005"
                sodipodi:role="line"
-               id="tspan4807">Exception</tspan></text>
+               id="tspan4807">Exception F.</tspan></text>
         </g>
       </g>
       <g
@@ -1473,7 +1473,7 @@
                sodipodi:role="line"
                x="276.77005"
                y="306.52512"
-               style="font-size:3.88055563px;text-align:center;text-anchor:middle;stroke-width:0.26458332">Result</tspan></text>
+               style="font-size:3.88055563px;text-align:center;text-anchor:middle;stroke-width:0.26458332">Result Filter</tspan></text>
         </g>
         <circle
            r="0.93544328"
