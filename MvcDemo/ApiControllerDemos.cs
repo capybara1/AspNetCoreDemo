@@ -60,13 +60,13 @@ namespace AspNetCoreDemo.MvcDemo
 
             var client = server.CreateClient();
 
-            var response = await client.GetAsync("/apicontroller?param=invalid");
+            var response = await client.GetAsync("/apicontroller/invalid");
 
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
         }
 
-        [Fact(DisplayName = "Use API-Controller to get response infos")]
-        public async Task UseApiControllerToGetResponseInfos()
+        [Fact(DisplayName = "Use API-Controller to perform model validation")]
+        public async Task UseApiControllerToPerformModelValidation()
         {
             var builder = new WebHostBuilder()
                 .ConfigureLogging(setup =>
@@ -96,7 +96,7 @@ namespace AspNetCoreDemo.MvcDemo
 
             var client = server.CreateClient();
 
-            var response = await client.GetAsync("/apicontroller?param=invalid");
+            var response = await client.GetAsync("/apicontroller/invalid");
 
             Assert.Equal(StatusCodes.Status400BadRequest, (int)response.StatusCode);
         }

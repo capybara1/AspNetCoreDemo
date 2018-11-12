@@ -7,7 +7,7 @@ namespace AspNetCoreDemo.MvcDemo.Controllers
     [Produces("application/json")]
     public class ApiControllerExamplesController : ControllerBase
     {
-        [HttpGet(Name = "getApiControllerExample")]
+        [HttpGet("{id}", Name = "getApiControllerExample")]
         [ProducesResponseType(404)]
         public ActionResult<string> Get(int id)
         {
