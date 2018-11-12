@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 using System.Threading;
@@ -61,6 +60,12 @@ namespace AspNetCoreDemo.MvcDemo.Controllers
                 _logger.LogInformation($"Parameter key: '{kvp.Key}'");
                 _logger.LogInformation($"Parameter value: '{kvp.Value}'");
             }
+        }
+
+        [HttpGet("value_provider")]
+        public void GetExampleWithDictionaryParameter(string param)
+        {
+            _logger.LogInformation($"Parameter from header: '{param}'");
         }
 
         [HttpPost("complex_parameter/qualified/{example.id}")]

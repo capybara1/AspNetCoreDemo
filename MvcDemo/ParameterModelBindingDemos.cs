@@ -28,6 +28,37 @@ namespace AspNetCoreDemo.MvcDemo
             _testOutputHelper = testOutputHelper ?? throw new ArgumentNullException(nameof(testOutputHelper));
         }
 
+        [Fact(DisplayName = "Use parameter binding to obtain cancellation token")]
+        public async Task UseParameterBindingToObtainCancellationToken()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore(setup =>
+                    {
+                        setup.ModelBinderProviders.Insert(0, new CustomModelBinderProvider());
+                    })
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+                })
+                .Configure(app =>
+                {
+                    app.UseMvc();
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+
+            var response = await client.GetAsync("pb/cancellation_token");
+
+            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
+        }
+
         [Fact(DisplayName = "Use Controller with plain, simple parameters")]
         public async Task UseControllerWithPlainSimpleParameters()
         {
@@ -303,37 +334,6 @@ namespace AspNetCoreDemo.MvcDemo
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
         }
 
-        [Fact(DisplayName = "Use Controller with custom binder")]
-        public async Task UseControllerWithCustomBinder()
-        {
-            var builder = new WebHostBuilder()
-                .ConfigureLogging(setup =>
-                {
-                    setup.AddDebug();
-                    setup.SetupDemoLogging(_testOutputHelper);
-                })
-                .ConfigureServices(services =>
-                {
-                    services.AddMvcCore(setup =>
-                        {
-                            setup.ModelBinderProviders.Insert(0, new CustomModelBinderProvider());
-                        })
-                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-                })
-                .Configure(app =>
-                {
-                    app.UseMvc();
-                });
-
-            var server = new TestServer(builder);
-
-            var client = server.CreateClient();
-            
-            var response = await client.GetAsync("pb/custom_binder?filter=-test");
-
-            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
-        }
-
         [Fact(DisplayName = "Use Controller with uploaded file")]
         public async Task UseControllerWithUploadedFile()
         {
@@ -369,8 +369,40 @@ namespace AspNetCoreDemo.MvcDemo
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
         }
 
-        [Fact(DisplayName = "Use parameter binding to obtain cancellation token")]
-        public async Task UseParameterBindingToObtainCancellationToken()
+        [Fact(DisplayName = "Use Controller with value provider")]
+        public async Task UseControllerWithValueProvider()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore(setup =>
+                        {
+                            setup.ValueProviderFactories.Insert(0, new ValueProvider.HeaderValueProviderFactory());
+                        })
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+                })
+                .Configure(app =>
+                {
+                    app.UseMvc();
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+            client.DefaultRequestHeaders.Add("param", "TEST");
+
+            var response = await client.GetAsync("pb/value_provider");
+
+            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
+        }
+
+        [Fact(DisplayName = "Use Controller with custom binder")]
+        public async Task UseControllerWithCustomBinder()
         {
             var builder = new WebHostBuilder()
                 .ConfigureLogging(setup =>
@@ -395,7 +427,7 @@ namespace AspNetCoreDemo.MvcDemo
 
             var client = server.CreateClient();
 
-            var response = await client.GetAsync("pb/cancellation_token");
+            var response = await client.GetAsync("pb/custom_binder?filter=-test");
 
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
         }
