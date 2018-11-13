@@ -137,6 +137,9 @@ Further readings:
         - [DPR](https://developer.mozilla.org/en-US/docs/Web/HTTP/DPR)
         - [Viewport-Width](https://developer.mozilla.org/en-US/docs/Web/HTTP/Viewport-Width)
         - [Width](https://developer.mozilla.org/en-US/docs/Web/HTTP/Width)
+- Files & Form-Data
+  - General
+    - [Content-Disposition](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition)
 - [Caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
   - Control
     - General
