@@ -43,30 +43,30 @@ Further readings:
 - [Using HTTP Methods for RESTful Services](http://www.restapitutorial.com/lessons/httpmethods.html)
 
 ## Status Codes
-- Overview
-- [HTTP 1.1 - Sec. 10](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
-- Most important
+
+Most important
 - Success
-    - [200 OK](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200)
-    - [201 Created](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/201)
-    - [202 Accepted](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/202)
-    - [204 No Content](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204)
+  - [200 OK](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200)
+  - [201 Created](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/201)
+  - [202 Accepted](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/202)
+  - [204 No Content](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204)
 - Redirect
-    - [302 Found](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/302)
+  - [302 Found](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/302)
 - Client Side Error
-    - [400 Bad Request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400)
-    - [401 Unauthorized](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401)
-    - [403 Forbidden](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403)
-    - [404 Not Found](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404)
-    - [405 Method Not Allowed](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405)
-    - [406 Not Acceptable](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/406)
-    - [409 Conflict](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/409)
-    - [415 Unsupported Media Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/415)
-- Server Side Error
-    - [500 Internal Server Error](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500)
-    - [503 Service Unavailable](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503)
+  - [400 Bad Request](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400)
+  - [401 Unauthorized](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401)
+  - [403 Forbidden](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403)
+  - [404 Not Found](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404)
+  - [405 Method Not Allowed](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405)
+  - [406 Not Acceptable](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/406)
+  - [409 Conflict](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/409)
+  - [415 Unsupported Media Type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/415)
+- Server Side Error (Fault)
+  - [500 Internal Server Error](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500)
+  - [503 Service Unavailable](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503)
 
 Further readings:
+- [HTTP 1.1 - Sec. 10](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)
 - [Redirections](https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections)
 
 ## Header
