@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -101,8 +103,8 @@ namespace AspNetCoreDemo.MvcDemo
             Assert.Equal(StatusCodes.Status400BadRequest, (int)response.StatusCode);
         }
 
-        [Fact(DisplayName = "Use API-Controller to consume post request")]
-        public async Task UseApiControllerToConsumePostRequest()
+        [Fact(DisplayName = "Use API-Controller to infer parameter sources")]
+        public async Task UseApiControllerToInferParameterSources()
         {
             var builder = new WebHostBuilder()
                 .ConfigureLogging(setup =>
@@ -127,9 +129,45 @@ namespace AspNetCoreDemo.MvcDemo
 
             var content = new StringContent("{}", new UTF8Encoding(false), "application/json");
 
-            var response = await client.PostAsync("/apicontroller?param=invalid", content);
+            var response = await client.PostAsync("/apicontroller", content);
 
             Assert.Equal(StatusCodes.Status201Created, (int)response.StatusCode);
+        }
+
+        [Fact(DisplayName = "Use API-Controller to infer content-tpye multipart/form-data")]
+        public async Task UseApiControllerToInferContentTypeMultipartFormData()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                        .AddJsonFormatters();
+                })
+                .Configure(app =>
+                {
+                    app.UseMvc();
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+
+            var content = new MultipartFormDataContent();
+            var payload = Encoding.UTF8.GetBytes("Test");
+            content.Add(
+                new StreamContent(File.OpenRead(@"TestData\example.txt")),
+                "file", // Must match parameter name
+                "example.txt");
+
+            var response = await client.PostAsync("/apicontroller/form-postback", content);
+
+            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
         }
     }
 }
