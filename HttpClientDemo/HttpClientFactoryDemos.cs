@@ -1,6 +1,7 @@
 ﻿using AspNetCoreDemo.HttpClientFactoryDemo.Contracts;
 using AspNetCoreDemo.HttpClientFactoryDemo.Handler;
 using Microsoft.Extensions.DependencyInjection;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -65,8 +66,17 @@ namespace AspNetCoreDemo.HttpClientFactoryDemo
         [Fact(DisplayName = "Add typed client with delegating handler")]
         public void AddTypedClientWithDelegatingHandler()
         {
+            var tokenCacheMock = new Mock<ITokenCache>();
+            var tokenProviderClientMock = new Mock<ITokenProviderClient>();
+
+            tokenProviderClientMock
+                .Setup(m => m.GetTokenAsync())
+                .ReturnsAsync("Valid Token");
+
             var services = new ServiceCollection();
 
+            services.AddSingleton(tokenCacheMock.Object);
+            services.AddSingleton(tokenProviderClientMock.Object);
             services.AddScoped<AuthenticationHandler>();
             services.AddHttpClient<IWikipediaClient, WikipediaClient>(c =>
                 {
