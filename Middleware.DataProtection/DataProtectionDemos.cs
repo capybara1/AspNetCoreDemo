@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace AspNetCoreDemo.MvcDemo
+namespace AspNetCoreDemo.Middleware.DataProtection
 {
     [Trait("Category", "ASP.NET Core Middleware / Data Protection")]
     public class DataProtectionDemos
