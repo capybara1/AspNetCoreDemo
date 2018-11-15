@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using System.Threading.Tasks;
 
-namespace AspNetCoreDemo.MiddlewareDemo.Security.Authorization
+namespace AspNetCoreDemo.Middleware.Authorization.Security.Authorization
 {
     public class MethodAllowedForUserAuthorizationHandler
         : AuthorizationHandler<MethodAllowedForUserAuthorizationRequirement>

@@ -5,7 +5,7 @@ using System.Security.Claims;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
-namespace AspNetCoreDemo.MiddlewareDemo.Security.Authentication
+namespace AspNetCoreDemo.Middleware.Authorization.Security.Authentication
 {
     public class DemoAuthenticationHandler : AuthenticationHandler<DemoAuthenticationSchemeOptions>
     {

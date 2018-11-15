@@ -5,13 +5,14 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyName>AspNetCoreDemo.MiddlewareDemo</AssemblyName>
+    <AssemblyName>AspNetCoreDemo.Middleware.Authorization</AssemblyName>
 
-    <RootNamespace>AspNetCoreDemo.MiddlewareDemo</RootNamespace>
+    <RootNamespace>AspNetCoreDemo.Middleware.Authorization</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.DataProtection" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="2.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />

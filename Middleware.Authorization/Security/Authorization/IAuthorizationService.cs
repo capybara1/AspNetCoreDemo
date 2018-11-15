@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace AspNetCoreDemo.MiddlewareDemo.Security.Authorization
+namespace AspNetCoreDemo.Middleware.Authorization.Security.Authorization
 {
     public interface IUserAuthorizationService
     {

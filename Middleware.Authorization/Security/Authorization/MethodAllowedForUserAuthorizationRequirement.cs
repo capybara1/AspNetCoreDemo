@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace AspNetCoreDemo.MiddlewareDemo.Security.Authorization
+namespace AspNetCoreDemo.Middleware.Authorization.Security.Authorization
 {
     public class MethodAllowedForUserAuthorizationRequirement : IAuthorizationRequirement
     { }

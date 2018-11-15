@@ -1,9 +1,9 @@
-﻿using AspNetCoreDemo.MiddlewareDemo.Contracts;
+﻿using AspNetCoreDemo.Middleware.Authorization.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Threading.Tasks;
 
-namespace AspNetCoreDemo.MiddlewareDemo.Security.Authorization
+namespace AspNetCoreDemo.Middleware.Authorization.Security.Authorization
 {
     public class ResourceOwnerAuthorizationHandler
         : AuthorizationHandler<ResourceOwnerAuthorizationRequirement, Resource>

@@ -1,6 +1,6 @@
-﻿using AspNetCoreDemo.MiddlewareDemo.Contracts;
-using AspNetCoreDemo.MiddlewareDemo.Security.Authentication;
-using AspNetCoreDemo.MiddlewareDemo.Security.Authorization;
+﻿using AspNetCoreDemo.Middleware.Authorization.Contracts;
+using AspNetCoreDemo.Middleware.Authorization.Security.Authentication;
+using AspNetCoreDemo.Middleware.Authorization.Security.Authorization;
 using AspNetCoreDemo.Utils;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace AspNetCoreDemo.MiddlewareDemo
+namespace AspNetCoreDemo.Middleware.Authorization
 {
     [Trait("Category", "ASP.NET Core Middleware / Authorization")]
     public class AuthorizationDemos

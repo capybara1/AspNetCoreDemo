@@ -38,6 +38,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Diagnostics", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.Authentication", "Middleware.Authentication\Middleware.Authentication.csproj", "{584E4AAC-4B95-4B6A-B25B-3C85F0AFB39B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.Authorization", "Middleware.Authorization\Middleware.Authorization.csproj", "{B76579E4-909F-4366-BCE1-7D58DF221D54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +106,10 @@ Global
 		{584E4AAC-4B95-4B6A-B25B-3C85F0AFB39B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{584E4AAC-4B95-4B6A-B25B-3C85F0AFB39B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{584E4AAC-4B95-4B6A-B25B-3C85F0AFB39B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B76579E4-909F-4366-BCE1-7D58DF221D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B76579E4-909F-4366-BCE1-7D58DF221D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B76579E4-909F-4366-BCE1-7D58DF221D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B76579E4-909F-4366-BCE1-7D58DF221D54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
