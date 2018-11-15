@@ -260,7 +260,7 @@ namespace AspNetCoreDemo.MiddlewareDemo
                         .AddDebug()
                         .SetupDemoLogging(_testOutputHelper);
                 })
-                .UseStartup<Startup>();
+                .UseStartup<Configuration.Startup>();
 
             var server = new TestServer(builder);
 
