@@ -6,6 +6,8 @@
     <IsPackable>false</IsPackable>
 
     <AssemblyName>AspNetCoreDemo.Middleware.Routing</AssemblyName>
+
+    <RootNamespace>AspNetCoreDemo.Middleware.Routing</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

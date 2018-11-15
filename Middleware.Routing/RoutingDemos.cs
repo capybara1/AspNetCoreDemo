@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace AspNetCoreDemo.MiddlewareDemo
+namespace AspNetCoreDemo.Middleware.Routing
 {
     [Trait("Category", "ASP.NET Core Middleware / Routing")]
     public class RoutingDemos
