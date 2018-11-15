@@ -7,14 +7,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace AspNetCoreDemo.MiddlewareDemo
+namespace AspNetCoreDemo.Middleware.Hosting
 {
-    [Trait("Category", "ASP.NET Core Middleware / Hosted Servicer")]
+    [Trait("Category", "ASP.NET Core Middleware / Hosted Service")]
     public partial class HostedServiceDemos
     {
         private readonly ITestOutputHelper _testOutputHelper;

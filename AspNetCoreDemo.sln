@@ -20,7 +20,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestfulWebApiDemo", "Restfu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExternalTestLibrary", "ExternalTestLibrary\ExternalTestLibrary.csproj", "{765A6142-F9D5-4B20-8C10-905530D20E96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.Versioning", "Mvc.Versioning\Mvc.Versioning.csproj", "{D294741A-F1BB-40D5-B2A5-654F374ACEC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.Versioning", "Mvc.Versioning\Mvc.Versioning.csproj", "{D294741A-F1BB-40D5-B2A5-654F374ACEC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.Hosting", "Middleware.Hosting\Middleware.Hosting.csproj", "{F396CF31-00A5-471F-85B7-370F20F13CA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +58,10 @@ Global
 		{D294741A-F1BB-40D5-B2A5-654F374ACEC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D294741A-F1BB-40D5-B2A5-654F374ACEC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D294741A-F1BB-40D5-B2A5-654F374ACEC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F396CF31-00A5-471F-85B7-370F20F13CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F396CF31-00A5-471F-85B7-370F20F13CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F396CF31-00A5-471F-85B7-370F20F13CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F396CF31-00A5-471F-85B7-370F20F13CA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

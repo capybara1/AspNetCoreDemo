@@ -4,7 +4,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AspNetCoreDemo.MiddlewareDemo.Services
+namespace AspNetCoreDemo.Middleware.Hosting.Services
 {
     public class HostedExampleService : IHostedService
     {

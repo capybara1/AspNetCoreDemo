@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace AspNetCoreDemo.MiddlewareDemo
+namespace AspNetCoreDemo.Middleware.Hosting
 {
     [Trait("Category", "ASP.NET Core Middleware / External Assemblies")]
     public partial class ExternalAssembliesDemos : IDisposable
