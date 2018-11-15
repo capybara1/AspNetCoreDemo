@@ -28,6 +28,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Rewrite", "Middl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.Routing", "Middleware.Routing\Middleware.Routing.csproj", "{756D68CD-791F-430A-9196-D47FD3A68260}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.ResponseCompression", "Middleware.ResponseCompression\Middleware.ResponseCompression.csproj", "{3ABD02C4-FBFE-4656-AFE4-5627448CC42C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +76,10 @@ Global
 		{756D68CD-791F-430A-9196-D47FD3A68260}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{756D68CD-791F-430A-9196-D47FD3A68260}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{756D68CD-791F-430A-9196-D47FD3A68260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ABD02C4-FBFE-4656-AFE4-5627448CC42C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ABD02C4-FBFE-4656-AFE4-5627448CC42C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ABD02C4-FBFE-4656-AFE4-5627448CC42C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ABD02C4-FBFE-4656-AFE4-5627448CC42C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace AspNetCoreDemo.MiddlewareDemo
+namespace AspNetCoreDemo.Middleware.ResponseCompression
 {
     [Trait("Category", "ASP.NET Core Middleware / Compression Middleware")]
     public class CompressionMiddlewareDemos
