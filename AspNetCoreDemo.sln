@@ -34,7 +34,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.ResponseCaching"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Cors", "Middleware.Cors\Middleware.Cors.csproj", "{5C2B54F4-932D-4A2D-9FA9-63BE8A0B5F72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.Diagnostics", "Middleware.Diagnostics\Middleware.Diagnostics.csproj", "{369A5CA6-2DFB-4BFF-9D16-14E5478776B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Diagnostics", "Middleware.Diagnostics\Middleware.Diagnostics.csproj", "{369A5CA6-2DFB-4BFF-9D16-14E5478776B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.Authentication", "Middleware.Authentication\Middleware.Authentication.csproj", "{584E4AAC-4B95-4B6A-B25B-3C85F0AFB39B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -98,6 +100,10 @@ Global
 		{369A5CA6-2DFB-4BFF-9D16-14E5478776B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{369A5CA6-2DFB-4BFF-9D16-14E5478776B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{369A5CA6-2DFB-4BFF-9D16-14E5478776B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{584E4AAC-4B95-4B6A-B25B-3C85F0AFB39B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{584E4AAC-4B95-4B6A-B25B-3C85F0AFB39B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{584E4AAC-4B95-4B6A-B25B-3C85F0AFB39B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{584E4AAC-4B95-4B6A-B25B-3C85F0AFB39B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

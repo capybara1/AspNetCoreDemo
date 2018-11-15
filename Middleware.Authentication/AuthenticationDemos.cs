@@ -1,4 +1,4 @@
-﻿using AspNetCoreDemo.MiddlewareDemo.Security.Authentication;
+﻿using AspNetCoreDemo.Middleware.Authentication.Security.Authentication;
 using AspNetCoreDemo.Utils;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace AspNetCoreDemo.MiddlewareDemo
+namespace AspNetCoreDemo.Middleware.Authentication
 {
     [Trait("Category", "ASP.NET Core Middleware / Authentication")]
     public class AuthenticationDemos
@@ -216,7 +216,7 @@ namespace AspNetCoreDemo.MiddlewareDemo
                     {
                         mappedApp.Run(async context =>
                         {
-                            var localLogger = serviceProvider.GetRequiredService<ILogger<AuthorizationDemos>>();
+                            var localLogger = serviceProvider.GetRequiredService<ILogger<AuthenticationDemos>>();
 
                             var result = await context.AuthenticateAsync("Cookie");
                             var principal = result.Principal;
@@ -237,7 +237,7 @@ namespace AspNetCoreDemo.MiddlewareDemo
 
             var server = new TestServer(builder);
 
-            var logger = server.Host.Services.GetRequiredService<ILogger<BasicDemos>>();
+            var logger = server.Host.Services.GetRequiredService<ILogger<AuthenticationDemos>>();
             
             var client = server.CreateClient();
             client.DefaultRequestHeaders.Add("Proof", "Sound Proof");
