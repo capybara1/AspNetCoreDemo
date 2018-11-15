@@ -26,11 +26,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Hosting", "Middl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Rewrite", "Middleware.Rewrite\Middleware.Rewrite.csproj", "{6B5DF764-0D6F-480F-A8F1-AD4573C02386}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.Routing", "Middleware.Routing\Middleware.Routing.csproj", "{756D68CD-791F-430A-9196-D47FD3A68260}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Routing", "Middleware.Routing\Middleware.Routing.csproj", "{756D68CD-791F-430A-9196-D47FD3A68260}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.ResponseCompression", "Middleware.ResponseCompression\Middleware.ResponseCompression.csproj", "{3ABD02C4-FBFE-4656-AFE4-5627448CC42C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.ResponseCompression", "Middleware.ResponseCompression\Middleware.ResponseCompression.csproj", "{3ABD02C4-FBFE-4656-AFE4-5627448CC42C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.ResponseCaching", "Middleware.ResponseCaching\Middleware.ResponseCaching.csproj", "{6DF5D938-A600-4B29-A9B3-B4BE099E6DB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.ResponseCaching", "Middleware.ResponseCaching\Middleware.ResponseCaching.csproj", "{6DF5D938-A600-4B29-A9B3-B4BE099E6DB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.Cors", "Middleware.Cors\Middleware.Cors.csproj", "{5C2B54F4-932D-4A2D-9FA9-63BE8A0B5F72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -86,6 +88,10 @@ Global
 		{6DF5D938-A600-4B29-A9B3-B4BE099E6DB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DF5D938-A600-4B29-A9B3-B4BE099E6DB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DF5D938-A600-4B29-A9B3-B4BE099E6DB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C2B54F4-932D-4A2D-9FA9-63BE8A0B5F72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C2B54F4-932D-4A2D-9FA9-63BE8A0B5F72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C2B54F4-932D-4A2D-9FA9-63BE8A0B5F72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C2B54F4-932D-4A2D-9FA9-63BE8A0B5F72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
