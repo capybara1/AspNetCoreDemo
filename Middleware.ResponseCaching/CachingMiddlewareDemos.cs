@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace AspNetCoreDemo.MiddlewareDemo
+namespace AspNetCoreDemo.Middleware.ResponseCaching
 {
     [Trait("Category", "ASP.NET Core Middleware / Caching Middleware")]
     public class CachingMiddlewareDemos
@@ -75,7 +75,7 @@ namespace AspNetCoreDemo.MiddlewareDemo
             })
             .Configure(app =>
             {
-                var logger = app.ApplicationServices.GetRequiredService<ILogger<BasicDemos>>();
+                var logger = app.ApplicationServices.GetRequiredService<ILogger<CachingMiddlewareDemos>>();
 
                 app.UseResponseCaching();
                 app.Run(async context =>
