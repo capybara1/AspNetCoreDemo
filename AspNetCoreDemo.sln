@@ -22,9 +22,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExternalTestLibrary", "Exte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.Versioning", "Mvc.Versioning\Mvc.Versioning.csproj", "{D294741A-F1BB-40D5-B2A5-654F374ACEC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.Hosting", "Middleware.Hosting\Middleware.Hosting.csproj", "{F396CF31-00A5-471F-85B7-370F20F13CA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Hosting", "Middleware.Hosting\Middleware.Hosting.csproj", "{F396CF31-00A5-471F-85B7-370F20F13CA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.Rewrite", "Middleware.Rewrite\Middleware.Rewrite.csproj", "{6B5DF764-0D6F-480F-A8F1-AD4573C02386}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Rewrite", "Middleware.Rewrite\Middleware.Rewrite.csproj", "{6B5DF764-0D6F-480F-A8F1-AD4573C02386}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.Routing", "Middleware.Routing\Middleware.Routing.csproj", "{756D68CD-791F-430A-9196-D47FD3A68260}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,6 +70,10 @@ Global
 		{6B5DF764-0D6F-480F-A8F1-AD4573C02386}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B5DF764-0D6F-480F-A8F1-AD4573C02386}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B5DF764-0D6F-480F-A8F1-AD4573C02386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{756D68CD-791F-430A-9196-D47FD3A68260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{756D68CD-791F-430A-9196-D47FD3A68260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{756D68CD-791F-430A-9196-D47FD3A68260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{756D68CD-791F-430A-9196-D47FD3A68260}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
