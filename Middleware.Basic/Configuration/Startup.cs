@@ -1,8 +1,8 @@
-﻿using AspNetCoreDemo.MiddlewareDemo.Contracts;
+﻿using AspNetCoreDemo.Middleware.Basic.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AspNetCoreDemo.MiddlewareDemo.Configuration
+namespace AspNetCoreDemo.Middleware.Basic.Configuration
 {
     public class Startup
     {

@@ -1,6 +1,6 @@
-using AspNetCoreDemo.MiddlewareDemo.Contracts;
-using AspNetCoreDemo.MiddlewareDemo.Implementations;
-using AspNetCoreDemo.MiddlewareDemo.Middlewares;
+using AspNetCoreDemo.Middleware.Basic.Contracts;
+using AspNetCoreDemo.Middleware.Basic.Services;
+using AspNetCoreDemo.Middleware.Basic.Middlewares;
 using AspNetCoreDemo.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace AspNetCoreDemo.MiddlewareDemo
+namespace AspNetCoreDemo.Middleware.Basic
 {
     [Trait("Category", "ASP.NET Core Middleware / Basics")]
     public partial class BasicDemos
@@ -202,7 +202,7 @@ namespace AspNetCoreDemo.MiddlewareDemo
                 })
                 .ConfigureServices(services =>
                 {
-                    services.AddTransient<IExampleService, ServiceImplementationA>();
+                    services.AddTransient<IExampleService, ExampleService>();
                     services.AddTransient<ExampleMiddlewareWithDependency>();
                 })
                 .Configure(app =>

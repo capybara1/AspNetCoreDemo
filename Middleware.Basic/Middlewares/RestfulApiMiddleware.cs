@@ -1,4 +1,4 @@
-﻿using AspNetCoreDemo.MiddlewareDemo.Contracts;
+﻿using AspNetCoreDemo.Middleware.Basic.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Net.Http.Headers;
 using System;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace AspNetCoreDemo.MiddlewareDemo.Middlewares
+namespace AspNetCoreDemo.Middleware.Basic.Middlewares
 {
     public class RestfulApiMiddleware : IMiddleware
     {

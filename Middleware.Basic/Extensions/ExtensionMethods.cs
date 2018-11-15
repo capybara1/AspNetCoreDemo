@@ -1,16 +1,16 @@
-﻿using AspNetCoreDemo.MiddlewareDemo.Contracts;
-using AspNetCoreDemo.MiddlewareDemo.Implementations;
-using AspNetCoreDemo.MiddlewareDemo.Middlewares;
+﻿using AspNetCoreDemo.Middleware.Basic.Contracts;
+using AspNetCoreDemo.Middleware.Basic.Services;
+using AspNetCoreDemo.Middleware.Basic.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AspNetCoreDemo.MiddlewareDemo
+namespace AspNetCoreDemo.Middleware.Basic
 {
     public static class ExtensionMethods
     {
         public static void AddExample(this IServiceCollection services)
         {
-            services.AddTransient<IExampleService, ServiceImplementationA>();
+            services.AddTransient<IExampleService, ExampleService>();
             services.AddTransient<ExampleMiddlewareWithDependency>();
         }
 

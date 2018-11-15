@@ -5,9 +5,9 @@
 
     <IsPackable>false</IsPackable>
 
-    <AssemblyName>AspNetCoreDemo.MiddlewareDemo</AssemblyName>
+    <AssemblyName>AspNetCoreDemo.Middleware.Basic</AssemblyName>
 
-    <RootNamespace>AspNetCoreDemo.MiddlewareDemo</RootNamespace>
+    <RootNamespace>AspNetCoreDemo.Middleware.Basic</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

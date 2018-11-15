@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiddlewareDemo", "MiddlewareDemo\MiddlewareDemo.csproj", "{28755D79-DD71-4FD1-A8AA-A56A620F8312}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Basic", "Middleware.Basic\Middleware.Basic.csproj", "{28755D79-DD71-4FD1-A8AA-A56A620F8312}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcDemo", "MvcDemo\MvcDemo.csproj", "{F20DE8F1-DA99-4132-ACB3-6EB5C56C0CEB}"
 EndProject
@@ -36,11 +36,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Cors", "Middlewa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Diagnostics", "Middleware.Diagnostics\Middleware.Diagnostics.csproj", "{369A5CA6-2DFB-4BFF-9D16-14E5478776B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.Authentication", "Middleware.Authentication\Middleware.Authentication.csproj", "{584E4AAC-4B95-4B6A-B25B-3C85F0AFB39B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Authentication", "Middleware.Authentication\Middleware.Authentication.csproj", "{584E4AAC-4B95-4B6A-B25B-3C85F0AFB39B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.Authorization", "Middleware.Authorization\Middleware.Authorization.csproj", "{B76579E4-909F-4366-BCE1-7D58DF221D54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Authorization", "Middleware.Authorization\Middleware.Authorization.csproj", "{B76579E4-909F-4366-BCE1-7D58DF221D54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.DataProtection", "Middleware.DataProtection\Middleware.DataProtection.csproj", "{A2D5A954-0B42-4C3A-94F9-6047BE673184}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.DataProtection", "Middleware.DataProtection\Middleware.DataProtection.csproj", "{A2D5A954-0B42-4C3A-94F9-6047BE673184}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

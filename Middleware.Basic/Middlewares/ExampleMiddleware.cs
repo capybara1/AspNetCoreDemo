@@ -3,7 +3,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace AspNetCoreDemo.MiddlewareDemo.Middlewares
+namespace AspNetCoreDemo.Middleware.Basic.Middlewares
 {
     internal class ExampleMiddleware : IMiddleware
     {

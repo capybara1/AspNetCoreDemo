@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace AspNetCoreDemo.MiddlewareDemo.Contracts
+namespace AspNetCoreDemo.Middleware.Basic.Contracts
 {
     public interface ISerializer
     {

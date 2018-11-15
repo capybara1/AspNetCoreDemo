@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AspNetCoreDemo.MiddlewareDemo.Contracts
+namespace AspNetCoreDemo.Middleware.Basic.Contracts
 {
     public interface IResourceStore
     {
