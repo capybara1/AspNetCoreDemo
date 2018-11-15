@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace AspNetCoreDemo.MiddlewareDemo
+namespace AspNetCoreDemo.Middleware.Diagnostics
 {
     [Trait("Category", "ASP.NET Core Middleware / Exception Handler Middleware")]
     public class ExceptionHandlerMiddlewareDemos
