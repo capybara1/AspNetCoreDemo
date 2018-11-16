@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace AspNetCoreDemo.MvcDemo
+namespace AspNetCoreDemo.Mvc.Cors
 {
     [Trait("Category", "ASP.NET Core MVC / CORS")]
     public class CorsDemos
@@ -44,7 +44,7 @@ namespace AspNetCoreDemo.MvcDemo
                         .WithOrigins("http://example.com")
                         .AllowAnyHeader()));
                 services.AddMvcCore()
-                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                    .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                     .AddCors(); // Attention: This is not the middleware! Requires the Microsoft.AspNetCore.Mvc.Cors package
             })
             .Configure(app =>
@@ -59,10 +59,10 @@ namespace AspNetCoreDemo.MvcDemo
             client.DefaultRequestHeaders.Add("Origin", "http://example.com");
             client.DefaultRequestHeaders.Add("Referer", "http://example.com");
             
-            var response = await client.GetAsync("/cors/enabled");
+            var response = await client.GetAsync("/enabled");
             AssertOriginIsAllowed(response, "http://example.com");
 
-            var otherResponse = await client.GetAsync("/cors/disabled");
+            var otherResponse = await client.GetAsync("/disabled");
             AssertOriginIsDisallowed(otherResponse, "http://example.com");
         }
 
