@@ -1,15 +1,14 @@
-﻿using AspNetCoreDemo.HttpClientFactoryDemo.Contracts;
-using AspNetCoreDemo.HttpClientFactoryDemo.Handler;
+﻿using AspNetCoreDemo.HttpClient.Basic.Contracts;
+using AspNetCoreDemo.HttpClient.Basic.Handler;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace AspNetCoreDemo.HttpClientFactoryDemo
+namespace AspNetCoreDemo.HttpClient.Basic
 {
     [Trait("Category", "HttpClient / HttpClientFactory")]
     public class HttpClientFactoryDemos

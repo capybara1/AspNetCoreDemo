@@ -1,5 +1,5 @@
-﻿using AspNetCoreDemo.HttpClientFactoryDemo.Contracts;
-using AspNetCoreDemo.HttpClientFactoryDemo.Model;
+﻿using AspNetCoreDemo.HttpClient.Basic.Contracts;
+using AspNetCoreDemo.HttpClient.Basic.Model;
 using Newtonsoft.Json;
 using System.IO;
 using System.Net.Http;
@@ -7,15 +7,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace AspNetCoreDemo.HttpClientFactoryDemo
+namespace AspNetCoreDemo.HttpClient.Basic
 {
     public class WikipediaClient : IWikipediaClient
     {
         private readonly JsonSerializer _serializer = new JsonSerializer();
 
-        private readonly HttpClient _httpClient;
+        private readonly System.Net.Http.HttpClient _httpClient;
 
-        public WikipediaClient(HttpClient httpClient)
+        public WikipediaClient(System.Net.Http.HttpClient httpClient)
         {
             _httpClient = httpClient ?? throw new System.ArgumentNullException(nameof(httpClient));
         }

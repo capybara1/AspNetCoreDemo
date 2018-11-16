@@ -1,11 +1,11 @@
-﻿using AspNetCoreDemo.HttpClientFactoryDemo.Contracts;
+﻿using AspNetCoreDemo.HttpClient.Basic.Contracts;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AspNetCoreDemo.HttpClientFactoryDemo.Handler
+namespace AspNetCoreDemo.HttpClient.Basic.Handler
 {
     public class AuthenticationHandler : DelegatingHandler
     {

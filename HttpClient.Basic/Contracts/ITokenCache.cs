@@ -1,4 +1,4 @@
-﻿namespace AspNetCoreDemo.HttpClientFactoryDemo.Contracts
+﻿namespace AspNetCoreDemo.HttpClient.Basic.Contracts
 {
     public interface ITokenCache
     {

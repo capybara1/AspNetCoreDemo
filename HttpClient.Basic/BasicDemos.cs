@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace AspNetCoreDemo.HttpClientFactoryDemo
+namespace AspNetCoreDemo.HttpClient.Basic
 {
     [Trait("Category", "HttpClient / Basics")]
     public class BasicDemos
@@ -22,7 +22,7 @@ namespace AspNetCoreDemo.HttpClientFactoryDemo
         [Fact(DisplayName = "Simple GET of string")]
         public async Task SimpleGetString()
         {
-            var client = new HttpClient();
+            var client = new System.Net.Http.HttpClient();
 
             client.BaseAddress = new Uri("https://en.wikipedia.org/w/api.php");
 
@@ -34,7 +34,7 @@ namespace AspNetCoreDemo.HttpClientFactoryDemo
         [Fact(DisplayName = "Simple GET of any media type")]
         public async Task SimpleGet()
         {
-            var client = new HttpClient();
+            var client = new System.Net.Http.HttpClient();
 
             client.BaseAddress = new Uri("https://en.wikipedia.org/w/api.php");
 
@@ -49,7 +49,7 @@ namespace AspNetCoreDemo.HttpClientFactoryDemo
         [Fact(DisplayName = "Simple GET with default header")]
         public async Task SimpleGetWithDefaultHeader()
         {
-            var client = new HttpClient();
+            var client = new System.Net.Http.HttpClient();
 
             client.BaseAddress = new Uri("https://en.wikipedia.org/w/api.php");
 
@@ -67,7 +67,7 @@ namespace AspNetCoreDemo.HttpClientFactoryDemo
         [Fact(DisplayName = "GET with header")]
         public async Task GetWithHeader()
         {
-            var client = new HttpClient();
+            var client = new System.Net.Http.HttpClient();
             
             var requestUri = new Uri("https://en.wikipedia.org/w/api.php?action=query&prop=info&titles=Main%20Page?action=query&prop=info&titles=Main%20Page&format=json");
             var request = new HttpRequestMessage(HttpMethod.Get, requestUri);

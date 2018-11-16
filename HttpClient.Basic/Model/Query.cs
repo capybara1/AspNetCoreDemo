@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace AspNetCoreDemo.HttpClientFactoryDemo.Model
+namespace AspNetCoreDemo.HttpClient.Basic.Model
 {
     public class Query
     {

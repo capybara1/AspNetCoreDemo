@@ -1,4 +1,4 @@
-﻿namespace AspNetCoreDemo.HttpClientFactoryDemo.Model
+﻿namespace AspNetCoreDemo.HttpClient.Basic.Model
 {
     public class Page
     {
