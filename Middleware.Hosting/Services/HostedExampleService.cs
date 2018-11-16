@@ -8,7 +8,7 @@ namespace AspNetCoreDemo.Middleware.Hosting.Services
 {
     public class HostedExampleService : IHostedService
     {
-        private readonly ILogger<HostedExampleService> _logger;
+        private readonly ILogger _logger;
 
         private Timer _timer;
 

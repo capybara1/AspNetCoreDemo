@@ -26,7 +26,7 @@ namespace AspNetCoreDemo.MvcDemo.Controllers
             { BindingSource.Query, "query" }
         };
 
-        private readonly ILogger<ApiExplorerExamplesController> _logger;
+        private readonly ILogger _logger;
         private readonly IApiDescriptionGroupCollectionProvider _apiExplorer;
 
         public ApiExplorerExamplesController(
