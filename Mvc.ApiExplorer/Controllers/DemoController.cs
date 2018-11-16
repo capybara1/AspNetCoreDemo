@@ -1,4 +1,4 @@
-﻿using AspNetCoreDemo.MvcDemo.Model;
+﻿using AspNetCoreDemo.Mvc.ApiExplorer.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc.Controllers;
@@ -10,13 +10,12 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace AspNetCoreDemo.MvcDemo.Controllers
+namespace AspNetCoreDemo.Mvc.ApiExplorer.Controllers
 {
     [Route("doc")]
-    [ApiExplorerSettings(IgnoreApi = false, GroupName = nameof(ApiExplorerExamplesController))]
-    public class ApiExplorerExamplesController : ControllerBase
+    [ApiExplorerSettings(IgnoreApi = false, GroupName = nameof(DemoController))]
+    public class DemoController : ControllerBase
     {
-
         private static IReadOnlyDictionary<BindingSource, string> ParameterLocationMap = new Dictionary<BindingSource, string>
         {
             { BindingSource.Form, "formData" },
@@ -29,8 +28,8 @@ namespace AspNetCoreDemo.MvcDemo.Controllers
         private readonly ILogger _logger;
         private readonly IApiDescriptionGroupCollectionProvider _apiExplorer;
 
-        public ApiExplorerExamplesController(
-            ILogger<ApiExplorerExamplesController> logger,
+        public DemoController(
+            ILogger<DemoController> logger,
             IApiDescriptionGroupCollectionProvider apiExplorer)
         {
             _logger = logger ?? throw new System.ArgumentNullException(nameof(logger));

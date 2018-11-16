@@ -1,4 +1,4 @@
-﻿using AspNetCoreDemo.MvcDemo.Controllers;
+﻿using AspNetCoreDemo.Mvc.ApiExplorer.Controllers;
 using AspNetCoreDemo.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace AspNetCoreDemo.MvcDemo
+namespace AspNetCoreDemo.Mvc.ApiExplorer
 {
     [Trait("Category", "ASP.NET Core MVC / API-Explorer")]
     public class ApiExplorerDemos
@@ -74,7 +74,7 @@ namespace AspNetCoreDemo.MvcDemo
 
             var client = server.CreateClient();
 
-            var response = await client.GetAsync("/doc/" + nameof(ApiExplorerExamplesController.ActionWithArguments) + "/value");
+            var response = await client.GetAsync("/doc/" + nameof(DemoController.ActionWithArguments) + "/value");
         }
     }
 }
