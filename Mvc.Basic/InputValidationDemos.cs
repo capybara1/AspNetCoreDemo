@@ -24,38 +24,8 @@ namespace AspNetCoreDemo.Mvc.Basic
             _testOutputHelper = testOutputHelper ?? throw new ArgumentNullException(nameof(testOutputHelper));
         }
         
-        [Fact(DisplayName = "Use data annotations for model validation")]
-        public async Task UseDataAnnotationsForModelValidation()
-        {
-            var builder = new WebHostBuilder()
-                .ConfigureLogging(setup =>
-                {
-                    setup.AddDebug();
-                    setup.SetupDemoLogging(_testOutputHelper);
-                })
-                .ConfigureServices(services =>
-                {
-                    services.AddMvcCore()
-                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                        .AddJsonFormatters()
-                        .AddDataAnnotations(); // Required
-                })
-                .Configure(app =>
-                {
-                    app.UseMvc();
-                });
-
-            var server = new TestServer(builder);
-
-            var client = server.CreateClient();
-            
-            var response = await client.GetAsync("validation/annotated_model?value=a_very_long_name");
-
-            Assert.Equal(StatusCodes.Status400BadRequest, (int)response.StatusCode);
-        }
-        
-        [Fact(DisplayName = "Use custom binder for model validation")]
-        public async Task UseCustomBinderForModelValidation()
+        [Fact(DisplayName = "Perform model validation within custom binding")]
+        public async Task PerformModelValidationWithinCustomBinding()
         {
             var builder = new WebHostBuilder()
                 .ConfigureLogging(setup =>

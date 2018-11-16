@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.ComponentModel.DataAnnotations;
 
-namespace AspNetCoreDemo.Mvc.Basic.Model
+namespace AspNetCoreDemo.Mvc.DataAnnotations.Model
 {
     public class AnnotatedExampleModel
     {
