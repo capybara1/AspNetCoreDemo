@@ -15,13 +15,13 @@ using Xunit.Abstractions;
 namespace AspNetCoreDemo.Mvc.Versioning
 {
     [Trait("Category", "ASP.NET Core MVC / Versioning")]
-    public class BasicDemos
+    public class VersioningDemos
     {
         // See https://github.com/Microsoft/aspnet-api-versioning
         
         private readonly ITestOutputHelper _testOutputHelper;
 
-        public BasicDemos(ITestOutputHelper testOutputHelper)
+        public VersioningDemos(ITestOutputHelper testOutputHelper)
         {
             _testOutputHelper = testOutputHelper ?? throw new ArgumentNullException(nameof(testOutputHelper));
         }
