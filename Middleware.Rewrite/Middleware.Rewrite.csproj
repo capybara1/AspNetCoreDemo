@@ -6,6 +6,8 @@
     <IsPackable>false</IsPackable>
 
     <AssemblyName>AspNetCoreDemo.Middleware.Rewrite</AssemblyName>
+
+    <RootNamespace>AspNetCoreDemo.Middleware.Rewrite</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

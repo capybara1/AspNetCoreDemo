@@ -4,6 +4,10 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <AssemblyName>AspNetCoreDemo.Mvc.Versioning</AssemblyName>
+
+    <RootNamespace>AspNetCoreDemo.Mvc.Versioning</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

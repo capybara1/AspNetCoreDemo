@@ -1,11 +1,8 @@
 ﻿using AspNetCoreDemo.Utils;
-using AspNetCoreDemo.Utils.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Internal;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -13,7 +10,6 @@ using System;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
-
 
 namespace AspNetCoreDemo.MvcDemo
 {
