@@ -52,7 +52,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExternalTestLibrary", "Exte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.DataAnnotations", "Mvc.DataAnnotations\Mvc.DataAnnotations.csproj", "{DB0CC40F-3C15-4E9B-8F8A-08B042A45262}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc.Localization.PO", "Mvc.Localization.PO\Mvc.Localization.PO.csproj", "{4FBE2FA3-F5BE-4FFC-BA36-4CE210856910}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.Localization.PO", "Mvc.Localization.PO\Mvc.Localization.PO.csproj", "{4FBE2FA3-F5BE-4FFC-BA36-4CE210856910}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.Localization", "Middleware.Localization\Middleware.Localization.csproj", "{066020C1-10D9-4D2F-84C8-390E9BA997E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -152,6 +154,10 @@ Global
 		{4FBE2FA3-F5BE-4FFC-BA36-4CE210856910}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FBE2FA3-F5BE-4FFC-BA36-4CE210856910}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FBE2FA3-F5BE-4FFC-BA36-4CE210856910}.Release|Any CPU.Build.0 = Release|Any CPU
+		{066020C1-10D9-4D2F-84C8-390E9BA997E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{066020C1-10D9-4D2F-84C8-390E9BA997E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{066020C1-10D9-4D2F-84C8-390E9BA997E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{066020C1-10D9-4D2F-84C8-390E9BA997E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
