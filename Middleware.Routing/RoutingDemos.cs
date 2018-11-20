@@ -77,8 +77,50 @@ namespace AspNetCoreDemo.Middleware.Routing
                         // For reserved routing names see https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-2.1#reserved-routing-names
                         routes.MapGet("test/{name}", context =>
                         {
-                            var name = context.GetRouteValue("name");
+                            // The following lines can be simplified by using the GetRouteValue extension method:
+                            var routingFeature = (IRoutingFeature)context.Features[typeof(IRoutingFeature)];
+                            var routeData = routingFeature.RouteData;
+                            var name = routeData.Values["name"];
                             return context.Response.WriteAsync($"Hello, {name}!");
+                        });
+                    });
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+
+            var response = await client.GetAsync("/test/World");
+            var greeting = await response.Content.ReadAsStringAsync();
+
+            Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
+            Assert.Equal("Hello, World!", greeting);
+        }
+
+        [Fact(DisplayName = "Fork pipeline using method specific handler with template")]
+        public async Task ForkPipelineUsingMethodSpecificHandlerWithTemplate()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddRouting();
+                })
+                .Configure(app =>
+                {
+                    app.UseRouter(routes =>
+                    {
+                        routes.MapMiddlewareGet("test/{name}", fork =>
+                        {
+                            fork.Run(context =>
+                            {
+                                var name = context.GetRouteValue("name");
+                                return context.Response.WriteAsync($"Hello, {name}!");
+                            });
                         });
                     });
                 });
@@ -111,6 +153,8 @@ namespace AspNetCoreDemo.Middleware.Routing
                 {
                     var defaultHandler = new RouteHandler(context =>
                     {
+
+
                         var name = context.GetRouteValue("name");
                         return context.Response.WriteAsync($"Hello, {name}!");
                     });
