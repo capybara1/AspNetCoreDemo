@@ -7,12 +7,10 @@ using Microsoft.AspNetCore.Localization.Routing;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
@@ -47,7 +45,6 @@ namespace AspNetCoreDemo.Middleware.Localization
                 {
                     app.UseRouter(routes =>
                     {
-                        // For reserved routing names see https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-2.1#reserved-routing-names
                         routes.MapMiddlewareRoute("test/{culture}", fork =>
                         {
                             fork.UseRequestLocalization(opt =>
