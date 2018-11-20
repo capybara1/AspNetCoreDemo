@@ -312,8 +312,7 @@ namespace AspNetCoreDemo.Mvc.Basic
                 .ConfigureServices(services =>
                 {
                     services.AddMvcCore()
-                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                        .AddJsonFormatters();
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
                 })
                 .Configure(app =>
                 {
