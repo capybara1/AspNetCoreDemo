@@ -56,7 +56,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mvc.Localization.PO", "Mvc.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Localization", "Middleware.Localization\Middleware.Localization.csproj", "{066020C1-10D9-4D2F-84C8-390E9BA997E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.Localization.Routing", "Middleware.Localization.Routing\Middleware.Localization.Routing.csproj", "{1FC892B3-838D-4466-88C1-5423E3FF4571}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Localization.Routing", "Middleware.Localization.Routing\Middleware.Localization.Routing.csproj", "{1FC892B3-838D-4466-88C1-5423E3FF4571}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.Session", "Middleware.Session\Middleware.Session.csproj", "{E66DA182-1AC7-4B8A-AC0E-EB85C7FFEA1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -164,6 +166,10 @@ Global
 		{1FC892B3-838D-4466-88C1-5423E3FF4571}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FC892B3-838D-4466-88C1-5423E3FF4571}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FC892B3-838D-4466-88C1-5423E3FF4571}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E66DA182-1AC7-4B8A-AC0E-EB85C7FFEA1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E66DA182-1AC7-4B8A-AC0E-EB85C7FFEA1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E66DA182-1AC7-4B8A-AC0E-EB85C7FFEA1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E66DA182-1AC7-4B8A-AC0E-EB85C7FFEA1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
