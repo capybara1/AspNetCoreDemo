@@ -77,7 +77,9 @@ namespace AspNetCoreDemo.Middleware.Routing
                         // For reserved routing names see https://docs.microsoft.com/en-us/aspnet/core/fundamentals/routing?view=aspnetcore-2.1#reserved-routing-names
                         routes.MapGet("test/{name}", context =>
                         {
-                            // The following lines can be simplified by using the GetRouteValue extension method:
+                            // The following lines can be simplified by using
+                            // the GetRouteData or the GetRouteValue extension method
+                            // respectively (see below):
                             var routingFeature = (IRoutingFeature)context.Features[typeof(IRoutingFeature)];
                             var routeData = routingFeature.RouteData;
                             var name = routeData.Values["name"];
@@ -153,10 +155,15 @@ namespace AspNetCoreDemo.Middleware.Routing
                 {
                     var defaultHandler = new RouteHandler(context =>
                     {
+                        var routeData = context.GetRouteData();
 
+                        var routeName = routeData.Routers
+                            .OfType<INamedRouter>()
+                            .Last()
+                            .Name;
 
-                        var name = context.GetRouteValue("name");
-                        return context.Response.WriteAsync($"Hello, {name}!");
+                        var name = routeData.Values["name"];
+                        return context.Response.WriteAsync($"Hello, {name}! (using route '{routeName}')");
                     });
                     var routeBuilder = new RouteBuilder(app, defaultHandler);
                     routeBuilder.MapRoute("default", "/test/{name}");
@@ -172,7 +179,7 @@ namespace AspNetCoreDemo.Middleware.Routing
             var greeting = await response.Content.ReadAsStringAsync();
 
             Assert.Equal(StatusCodes.Status200OK, (int)response.StatusCode);
-            Assert.Equal("Hello, World!", greeting);
+            Assert.Equal("Hello, World! (using route 'default')", greeting);
         }
 
         [Fact(DisplayName = "Use route template and default values for default handler")]
