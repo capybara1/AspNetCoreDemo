@@ -29,6 +29,10 @@ namespace AspNetCoreDemo.Mvc.Localization
         [Fact(DisplayName = "Use string localization with resx file")]
         public async Task UseStringLocalizationWithResxFile()
         {
+            // This example does not use the AddMvcLocalization extension method
+            // to demonstrate that the components in Microsoft.Extensions.Localization
+            // are sufficient. Those are added by the AddLocalization extension method.
+
             // Important: create a resource file in Visual Studio with a culture in the file name
             // Access modifier setting of the resx file must be set to: no code generation
 
@@ -40,9 +44,9 @@ namespace AspNetCoreDemo.Mvc.Localization
                 })
                 .ConfigureServices(services =>
                 {
+                    services.AddLocalization();
                     services.AddMvcCore()
-                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                        .AddMvcLocalization();
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
                 })
                 .Configure(app =>
                 {

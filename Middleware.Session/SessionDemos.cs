@@ -36,6 +36,9 @@ namespace Middleware.Session
                 })
                 .ConfigureServices(services =>
                 {
+                    // In production the distributed cache must be
+                    // a real solution, shared by the nodes of the
+                    // cluster
                     services.AddDistributedMemoryCache();
 
                     services.AddSession(options =>
