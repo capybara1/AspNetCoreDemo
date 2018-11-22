@@ -1,4 +1,5 @@
 ﻿using AspNetCoreDemo.Utils;
+using AspNetCoreDemo.Utils.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Localization;
@@ -9,7 +10,6 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
@@ -62,17 +62,71 @@ namespace AspNetCoreDemo.Mvc.Localization
                         opt.SupportedCultures = supportedCultures;
                         opt.SupportedUICultures = supportedCultures;
                     });
-                    app.UseMvc();
+                    app.UseMvc(routes =>
+                    {
+                        routes.MapRoute("test", "/", new
+                        {
+                            controller = nameof(Controllers.DemoController).RemoveControllerSuffix(),
+                            action = nameof(Controllers.DemoController.ActionForCommonLocalization),
+                        });
+                    });
+                });
+
+            var server = new TestServer(builder);
+
+            var client = server.CreateClient();
+            
+            await client.GetAsync("/?culture=de");
+        }
+
+        [Fact(DisplayName = "Use localization of data annotation")]
+        public async Task UseLocalizationOfDataAnnotation()
+        {
+            var builder = new WebHostBuilder()
+                .ConfigureLogging(setup =>
+                {
+                    setup.AddDebug();
+                    setup.SetupDemoLogging(_testOutputHelper);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvcCore()
+                        .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                        .AddDataAnnotations()
+                        .AddDataAnnotationsLocalization(options =>
+                        {
+                            options.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(Resources.ModelValidation));
+                        });
+                })
+                .Configure(app =>
+                {
+                    app.UseRequestLocalization(opt =>
+                    {
+                        var supportedCultures = new List<CultureInfo>
+                        {
+                            new CultureInfo("de"),
+                            new CultureInfo("en"),
+                        };
+
+                        opt.DefaultRequestCulture = new RequestCulture("en");
+                        opt.SupportedCultures = supportedCultures;
+                        opt.SupportedUICultures = supportedCultures;
+                    });
+                    app.UseMvc(routes =>
+                    {
+                        routes.MapRoute("test", "/", new
+                            {
+                                controller = nameof(Controllers.DemoController).RemoveControllerSuffix(),
+                                action = nameof(Controllers.DemoController.ActionForDataAnnotationLocalization),
+                            });
+                    });
                 });
 
             var server = new TestServer(builder);
 
             var client = server.CreateClient();
 
-            var headerValue = new StringWithQualityHeaderValue("de");
-            client.DefaultRequestHeaders.AcceptLanguage.Add(headerValue);
-
-            await client.GetAsync("localization");
+            var response = await client.GetAsync("/?culture=de&value=0");
         }
     }
 }
