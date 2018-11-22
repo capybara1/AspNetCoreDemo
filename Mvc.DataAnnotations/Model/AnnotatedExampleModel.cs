@@ -9,11 +9,11 @@ namespace AspNetCoreDemo.Mvc.DataAnnotations.Model
         [StringLength(4)]
         public string Value { get; set; }
 
-        [Range(1, 3, ErrorMessage = "Priority must be a number between 1 and 3")]
+        [Range(1, 3, ErrorMessage = "{0} must be a number between {1} and {2}")]
         public int Priority { get; set; }
 
         [BindRequired]
-        [RegularExpression("^[a-z]", ErrorMessage = "The text must start with a lower case letter")]
+        [RegularExpression("^[a-z]", ErrorMessage = "{0} must start with a lower case letter")]
         public string Text { get; set; }
     }
 }
