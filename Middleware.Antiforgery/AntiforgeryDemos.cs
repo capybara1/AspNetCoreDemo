@@ -8,7 +8,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -20,6 +19,8 @@ namespace AspNetCoreDemo.Mvc.Basic
     [Trait("Category", "ASP.NET Core Middleware / Antiforgery")]
     public class AntiforgeryDemos
     {
+        // See also https://lowleveldesign.org/2014/07/02/asp-net-anti-forgery-tokens-internals/
+
         private readonly ITestOutputHelper _testOutputHelper;
 
         public AntiforgeryDemos(ITestOutputHelper testOutputHelper)
