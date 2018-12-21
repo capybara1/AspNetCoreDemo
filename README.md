@@ -410,6 +410,9 @@ In alphabetical order:
   - Acronym for **Hy**permedia-**Dr**iven Web **A**PIs
   - Builds upon JSON-LD
   - Current Version released in 2013
+  - Slides
+    - [From Strings to Things to a Web of Services by Markus Lanthaler](https://de.slideshare.net/lanthaler/from-strings-to-things-to-a-web-of-services)
+    - [Hydra for Web Annotations by Gregg Kellogg](https://de.slideshare.net/gkellogg1/web-annotations-2014)
 - [I/O Docs](https://github.com/mashery/iodocs)
   - Current version released on July 2014
 - [JSON API](https://jsonapi.org/format/)
