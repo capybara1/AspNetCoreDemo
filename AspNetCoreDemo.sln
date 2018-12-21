@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DD347CCB-C00F-486D-A907-03FBAA21983D}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -60,7 +62,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Localization.Rou
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Session", "Middleware.Session\Middleware.Session.csproj", "{E66DA182-1AC7-4B8A-AC0E-EB85C7FFEA1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware.Antiforgery", "Middleware.Antiforgery\Middleware.Antiforgery.csproj", "{1DDF0757-3D60-42EC-A168-035E6544DABE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware.Antiforgery", "Middleware.Antiforgery\Middleware.Antiforgery.csproj", "{1DDF0757-3D60-42EC-A168-035E6544DABE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
