@@ -79,6 +79,10 @@ Further readings:
     - General
       - [Connection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection)
       - [Keep-Alive](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Keep-Alive)
+- [Protocol Upgrade](https://developer.mozilla.org/en-US/docs/Web/HTTP/Protocol_upgrade_mechanism)
+  - General
+    - [Connection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection)
+    - [Upgrade](https://developer.mozilla.org/en-US/docs/Web/HTTP/Upgrade)
 - Congestion Control
   - Response
     - [Retry-After](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After)
@@ -98,9 +102,11 @@ Further readings:
   - Request
     - [Authorization](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authorization)
     - [Proxy-Authorization](https://developer.mozilla.org/en-US/docs/Web/HTTP/Proxy-Authorization)
+    - [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Set-Cookie)
   - Response
     - [WWW-Authenticate](https://developer.mozilla.org/en-US/docs/Web/HTTP/WWW-Authenticate)
     - [Proxy-Authenticate](https://developer.mozilla.org/en-US/docs/Web/HTTP/Proxy-Authenticate)
+    - [Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookie)
 - [Conditional Requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Conditional_requests)
   - Strong Validation
     - Response
@@ -161,7 +167,7 @@ Further readings:
     - [Accept-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Accept-Encoding)
   - Response
     - [Content-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content-Encoding)
-- [Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
+- Session
   - Request
     - [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Set-Cookie)
   - Response
@@ -194,12 +200,19 @@ Further readings:
     - Strict-Transport-Security
 - Tracking
   - Request
+    - [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Set-Cookie)
     - [Referer](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referer)
     - [DNT](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/DNT)
   - Response
+    - [Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookie)
     - [Referrer-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
     - [Tk](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Tk)
     - [Via](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Via)
+- [Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
+  - Request
+    - [Set-Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Set-Cookie)
+  - Response
+    - [Cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookie)
 - Information
   - Response
     - [Server](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server)
