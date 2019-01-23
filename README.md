@@ -80,9 +80,22 @@ Further readings:
       - [Connection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection)
       - [Keep-Alive](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Keep-Alive)
 - [Protocol Upgrade](https://developer.mozilla.org/en-US/docs/Web/HTTP/Protocol_upgrade_mechanism)
-  - General
-    - [Connection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection)
-    - [Upgrade](https://developer.mozilla.org/en-US/docs/Web/HTTP/Upgrade)
+  - Universal
+    - Request
+      - [Connection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Connection)
+      - [Upgrade](https://developer.mozilla.org/en-US/docs/Web/HTTP/Upgrade)
+  - HTTP/2
+    - Request
+      - [HTTP2_Settings](https://developer.mozilla.org/en-US/docs/Web/HTTP/HTTP2_Settings)
+  - WebSockets
+    - General
+      - [Sec-WebSocket-Version](https://developer.mozilla.org/en-US/docs/Web/HTTP/Sec-WebSocket-Version)
+    - Request
+      - [Sec-WebSocket-Protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP/Sec-WebSocket-Protocol)
+      - [Sec-WebSocket-Key](https://developer.mozilla.org/en-US/docs/Web/HTTP/Sec-WebSocket-Key)
+      - [Sec-WebSocket-Extensions](https://developer.mozilla.org/en-US/docs/Web/HTTP/Sec-WebSocket-Extensions)
+    - Response
+      - [Sec-WebSocket-Accept](https://developer.mozilla.org/en-US/docs/Web/HTTP/Sec-WebSocket-Accept)
 - Congestion Control
   - Response
     - [Retry-After](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After)
