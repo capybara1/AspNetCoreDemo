@@ -270,18 +270,108 @@ Further readings:
 
 ![Examples for modifications](ModificationExamples.svg)
 
-## Comparison to SOAP
+# Paradigms
 
-- [SOAP 1.2](https://www.w3.org/TR/soap12-part0/) has been standardized by W3C in April 2007
-- SOAP is considered RPC while REST relies on manipulation of addressable ressources
-- SOAP works without HTTP but is usually used on top, since communication via HTTP is usually enabled in a corporate security infrastructure
-- Some HTTP Features are redundant to remove a dependencie to HTTP
-- Tooling for HTTP cannot be used
-    - Only used verb is POST
-      - No HTTP Caching
-    - Informations in body
-      - No URL based filtering
-- SOAP has a defined set of associated standards ([WS-*](https://msdn.microsoft.com/en-us/library/ms951274.aspx)), created by a few organizations
+- Resouce oriented Web APIs
+  - Current development is domained by (pragmatic) [REST](#rest)
+- RPC APIs
+  - Legacy applications still heavily utilize SOAP or [EDI](https://en.wikipedia.org/wiki/Electronic_data_interchange)
+  - Current development is domained by gRPC
+- Streaming APIs
+- Query APIs
+  - Current development is domained by GraphQL
+- Flat File APIs
+
+Resources
+
+- [REST vs. GraphQL: A Critical Review](https://goodapi.co/blog/rest-vs-graphql)
+
+## Which Paradigm to Follow?
+
+### Constraints
+
+Depends on Contraits
+- Business Constraints e.g.
+  - Customer-related
+  - Business requirements
+  - Product requirements
+- Complexity Constraints
+  - System complexity
+  - Evolution requirements
+- Domain Constraints
+  - Domain-specific limitations
+  - Regulations
+  - Environments
+- Cultural Constraints
+  - Conway's law
+  - Knownledge
+  - Human resources
+  - Peer-PRessure
+  - Trendiness
+
+Resources
+
+- [REST vs. GraphQL: A Critical Review](https://goodapi.co/blog/rest-vs-graphql)
+
+### Properties
+
+- Performance
+  - Network performance
+  - Network efficiency
+  - User-perceived
+- Scalability
+  - Size complexity
+- Simplicity
+  - Of the uniform interface
+  - User-perceived
+  - Task structure
+  - Unpredictability
+  - Algorithmic
+  - Chaotic
+- Modifiability
+  - Evolvability
+  - Extensibility
+  - Customizability
+  - Configurability
+  - Reusability
+- Visibility
+  - Monitoring
+  - Security
+  - Caching
+- Portability
+  - Different environments
+  - Code with data
+- Reliability
+  - Susceptibility to failure
+  - Ability to recover
+- Deiscoverability
+  - Design-time
+  - Runtime
+- Type-Safety
+- Ease of development
+  - Server
+  - Client
+- Cost effectivity
+  - Time to market
+  - Development cost
+  - Maintenance cost
+  - Cost of change
+- Active community
+- Tooling
+  - Server
+  - Client
+  - API management
+  - Developer experience
+- Ecosystem maturity
+- Resources
+  - Books
+  - Articles
+  - On-boarding tutorials
+- Enterprise readyness
+
+Resources
+
+- [REST vs. GraphQL: A Critical Review](https://goodapi.co/blog/rest-vs-graphql)
 
 # REST
 
@@ -500,3 +590,22 @@ In alphabetical order:
   - Published on February 2014
 - [Evolving HTTP APIs](https://www.mnot.net/blog/2012/12/04/api-evolution)
   - Published on December 2012
+
+### Current State of REST
+
+- [REST: Versprechen, Wirklichkeit & die Alternativen GraphQL, gRPC, ...](https://www.jug-da.de/2018/01/REST-GraphQL-gRPC/)
+- [When to Use What: REST, GraphQL, Webhooks, & gRPC](https://nordicapis.com/when-to-use-what-rest-graphql-webhooks-grpc/)
+- [REST vs. GraphQL: A Critical Review](https://goodapi.co/blog/rest-vs-graphql)
+
+### REST Compared to SOAP
+
+- [SOAP 1.2](https://www.w3.org/TR/soap12-part0/) has been standardized by W3C in April 2007
+- SOAP is considered RPC while REST relies on manipulation of addressable ressources
+- SOAP works without HTTP but is usually used on top, since communication via HTTP is usually enabled in a corporate security infrastructure
+- Some HTTP Features are redundant to remove a dependencie to HTTP
+- Tooling for HTTP cannot be used
+    - Only used verb is POST
+      - No HTTP Caching
+    - Informations in body
+      - No URL based filtering
+- SOAP has a defined set of associated standards ([WS-*](https://msdn.microsoft.com/en-us/library/ms951274.aspx)), created by a few organizations
