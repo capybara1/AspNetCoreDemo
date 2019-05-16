@@ -12,6 +12,10 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
+// Resources about endpoints in ASP.NET Core (v2.2 and higher)
+// https://youtu.be/8k0OKeGsWTg?t=2074
+// https://devblogs.microsoft.com/aspnet/aspnet-core-3-preview-2/
+
 namespace AspNetCoreDemo.Middleware.Routing
 {
     [Trait("Category", "ASP.NET Core Middleware / Routing")]
