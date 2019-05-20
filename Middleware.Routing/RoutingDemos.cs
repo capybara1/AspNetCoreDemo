@@ -15,6 +15,12 @@ using Xunit.Abstractions;
 // Resources about endpoints in ASP.NET Core (v2.2 and higher)
 // https://youtu.be/8k0OKeGsWTg?t=2074
 // https://devblogs.microsoft.com/aspnet/aspnet-core-3-preview-2/
+// EndpointDataSource
+// services.TryAddSingleton<ConcreteEndpointDataSource>();
+// CompositeEndpointDataSource
+// EndpointRoutingMiddleware
+// DefaultEndpointRouteBuilder https://github.com/aspnet/AspNetCore/master/src/Http/Routing/src/DefaultEndpointRouteBuilder.cs
+// https://github.com/aspnet/AspNetCore/master/src/Http/Routing/src/EndpointDataSource.cs
 
 namespace AspNetCoreDemo.Middleware.Routing
 {
